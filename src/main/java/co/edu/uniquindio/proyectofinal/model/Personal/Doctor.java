@@ -1,5 +1,5 @@
 package co.edu.uniquindio.proyectofinal.model.Personal;
 
-public class Medico {
+public class Doctor {
     
 }

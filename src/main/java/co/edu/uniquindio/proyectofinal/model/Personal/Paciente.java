@@ -1,6 +1,6 @@
 package co.edu.uniquindio.proyectofinal.model.Personal;
 
-public class Paciente {
+public class Paciente extends Persona {
 
     public String nombre;
     public String id;
