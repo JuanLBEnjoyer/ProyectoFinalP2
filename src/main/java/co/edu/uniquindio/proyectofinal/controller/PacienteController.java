@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyectofinal.controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
@@ -40,10 +41,9 @@ public class PacienteController {
 
         String nombre = this.txtNombre.getText();
         String cedula = this.txtCedula.getText();
-        int edad = Integer.parseInt(this.txtEdad.getText());
+    
 
-
-        Paciente paciente = new Paciente(nombre, cedula, edad);
+        Paciente paciente = new Paciente(nombre, cedula, LocalDate.of(2000,2,24) );
 
         System.out.println(paciente.toString());
 

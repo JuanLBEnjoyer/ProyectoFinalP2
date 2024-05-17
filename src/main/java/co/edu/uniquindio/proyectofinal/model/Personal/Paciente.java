@@ -1,48 +1,24 @@
 package co.edu.uniquindio.proyectofinal.model.Personal;
 
+import java.lang.String;
+import java.time.LocalDate;
+
 public class Paciente extends Persona {
 
     public String nombre;
     public String id;
-    public int edad;
+    ;
 
-    public Paciente(String nombre, String id, int edad){
-        this.nombre = nombre;
-        this.id = id;
-        this.edad = edad;
+    public Paciente(String nombre, String id, LocalDate fechaDeNacimiento){
+        super(nombre, id, fechaDeNacimiento);
 
         assert !nombre.isBlank() && !nombre.isEmpty();
         assert !id.isBlank() && !id.isEmpty();
-        assert edad > 0;
+        assert fechaDeNacimiento != null && fechaDeNacimiento.isBefore(LocalDate.now());
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    @Override
-    public String toString() {
-        return "Paciente [nombre=" + nombre + ", id=" + id + ", edad=" + edad + "]";
+    public String toStringPaciente() {
+        return "Paciente [nombre=" + nombre + ", id=" + id +"]";
     }
 
     
