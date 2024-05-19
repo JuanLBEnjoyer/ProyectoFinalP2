@@ -38,5 +38,12 @@ public abstract class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    @Override
+    public String toString() {
+        return "Persona [nombre=" + nombre + ", id=" + id + ", fechaNacimiento=" + fechaNacimiento + "]";
+    }
+
+    
+
     
 }
