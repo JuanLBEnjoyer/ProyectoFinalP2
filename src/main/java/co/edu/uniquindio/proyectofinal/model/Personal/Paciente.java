@@ -11,7 +11,7 @@ import co.edu.uniquindio.proyectofinal.model.Consultorio.Cita;
 public class Paciente extends Persona {
 
 
-    private Collection<Cita> citasProgrmadas;
+    private Collection<Cita> citasProgramadas;
     private HistorialMedico historialMedico;
 
 
@@ -19,7 +19,7 @@ public class Paciente extends Persona {
         super(nombre, id, fechaDeNacimiento);
 
         this.historialMedico = historialMedico;
-        this.citasProgrmadas = new ArrayList<Cita>();
+        this.citasProgramadas = new ArrayList<Cita>();
 
         assert !nombre.isBlank() && !nombre.isEmpty();
         assert !id.isBlank() && !id.isEmpty();
@@ -38,12 +38,12 @@ public class Paciente extends Persona {
 
 
     public Collection<Cita> getCitasProgrmadas() {
-        return citasProgrmadas;
+        return citasProgramadas;
     }
 
 
     public void setCitasProgrmadas(Collection<Cita> citasProgrmadas) {
-        this.citasProgrmadas = citasProgrmadas;
+        this.citasProgramadas = citasProgrmadas;
     }
 
 

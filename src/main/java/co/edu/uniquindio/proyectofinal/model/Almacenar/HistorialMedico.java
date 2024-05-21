@@ -20,6 +20,36 @@ public class HistorialMedico {
     }
 
 
+    public Collection<Cita> getCitas() {
+        return citas;
+    }
+
+
+    public void setCitas(Collection<Cita> citas) {
+        this.citas = citas;
+    }
+
+
+    public Collection<Doctor> getDoctores() {
+        return doctores;
+    }
+
+
+    public void setDoctores(Collection<Doctor> doctores) {
+        this.doctores = doctores;
+    }
+
+
+    public Collection<Tratamiento> getTratamientos() {
+        return tratamientos;
+    }
+
+
+    public void setTratamientos(Collection<Tratamiento> tratamientos) {
+        this.tratamientos = tratamientos;
+    }
+
+
 
     
 }

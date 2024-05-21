@@ -10,13 +10,13 @@ public class Tratamiento {
     private LocalDate fechaFin;
     private EstadoTratamiento estadoTratamiento;
 
-    public Tratamiento(LocalDate fechaInicio, String nombre, String descripcion, LocalDate fechaFin, EstadoTratamiento estadoTratamiento ) {
+    public Tratamiento(LocalDate fechaInicio, String nombre, String descripcion, LocalDate fechaFin) {
 
         this.fechaInicio = fechaInicio;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaFin = fechaFin;
-        this.estadoTratamiento = estadoTratamiento; 
+        this.estadoTratamiento = EstadoTratamiento.ACTIVO; 
     }
 
     public LocalDate getFechaInicio() {
@@ -50,5 +50,12 @@ public class Tratamiento {
     public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
-    
+
+    public EstadoTratamiento getEstadoTratamiento() {
+        return estadoTratamiento;
+    }
+
+    public void setEstadoTratamiento(EstadoTratamiento estadoTratamiento) {
+        this.estadoTratamiento = estadoTratamiento;
+    }    
 }
