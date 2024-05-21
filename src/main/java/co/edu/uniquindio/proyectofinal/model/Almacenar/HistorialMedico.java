@@ -49,6 +49,11 @@ public class HistorialMedico {
         this.tratamientos = tratamientos;
     }
 
+    public void agregarCitaFinalizada(Cita cita) {
+        citas.add(cita);
+    }
+
+
 
 
     

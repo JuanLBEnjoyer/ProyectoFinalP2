@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyectofinal.model.Consultorio;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
@@ -74,6 +75,12 @@ public class Cita {
         this.salaCita = salaCita;
     }
 
+    public void definirTratamiento(LocalDate fechaInicio, String nombre, 
+    String descripcion, LocalDate fechaFin, RecetaMedica recetaMedica){
+    paciente.agregarTratamientoActivo(new Tratamiento(fechaInicio, nombre, descripcion, fechaFin, recetaMedica));
+
+    }
+
 
     public void actualizarEstado() {
         LocalDateTime ahora = LocalDateTime.now();
@@ -86,16 +93,26 @@ public class Cita {
 
     public void finalizarCita(){
         this.estadoCita = EstadoCita.FINALIZADA;
-        
+        Doctor doctorAsociado = getDoctor();
+        Paciente pacienteAsociado = getPaciente();
+        if(doctorAsociado != null){
+            doctorAsociado.eliminarCitaPendiente(this);
+        }
+
+        if(pacienteAsociado !=null ){
+            pacienteAsociado.eliminarCitaProgramada(this);
+            pacienteAsociado.getHistorialMedico().agregarCitaFinalizada(this);
+        }
     }
 
     public void cancelarCita(){
         this.estadoCita = EstadoCita.CANCELADA;
+        Doctor doctorAsociado = getDoctor();
+        if(doctorAsociado != null){
+            doctorAsociado.eliminarCitaPendiente(this);
+        }
     }
 
     
-
-
-
 
 } 

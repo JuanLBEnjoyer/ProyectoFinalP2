@@ -30,5 +30,14 @@ public class Doctor extends Persona {
         return citasPendientes;
     }
 
+
+    public void agregarCitaPendiente(Cita cita) {
+        citasPendientes.add(cita);
+    }
+
+    public void eliminarCitaPendiente(Cita cita) {
+        citasPendientes.remove(cita);
+    }
+
     
 }
