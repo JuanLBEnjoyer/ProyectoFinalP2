@@ -8,14 +8,16 @@ public class Tratamiento {
     private String nombre;
     private String descripcion;
     private LocalDate fechaFin;
+    private RecetaMedica recetaMedica;
     private EstadoTratamiento estadoTratamiento;
 
-    public Tratamiento(LocalDate fechaInicio, String nombre, String descripcion, LocalDate fechaFin) {
+    public Tratamiento(LocalDate fechaInicio, String nombre, String descripcion, LocalDate fechaFin, RecetaMedica recetaMedica) {
 
         this.fechaInicio = fechaInicio;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaFin = fechaFin;
+        this.recetaMedica = recetaMedica;
         this.estadoTratamiento = EstadoTratamiento.ACTIVO; 
     }
 
@@ -58,4 +60,12 @@ public class Tratamiento {
     public void setEstadoTratamiento(EstadoTratamiento estadoTratamiento) {
         this.estadoTratamiento = estadoTratamiento;
     }    
+
+    public RecetaMedica getRecetaMedica(){
+        return recetaMedica;
+    }
+
+    public void setRecetaMedica(RecetaMedica recetaMedica){
+        this.recetaMedica = recetaMedica;
+    }
 }
