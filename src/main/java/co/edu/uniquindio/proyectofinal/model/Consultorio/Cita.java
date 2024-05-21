@@ -86,6 +86,7 @@ public class Cita {
 
     public void finalizarCita(){
         this.estadoCita = EstadoCita.FINALIZADA;
+        
     }
 
     public void cancelarCita(){

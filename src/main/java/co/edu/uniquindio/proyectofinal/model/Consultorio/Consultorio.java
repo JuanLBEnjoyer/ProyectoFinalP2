@@ -1,18 +1,24 @@
 package co.edu.uniquindio.proyectofinal.model.Consultorio;
+import co.edu.uniquindio.proyectofinal.model.Exception.PersonaExistenteException;
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
+import co.edu.uniquindio.proyectofinal.model.Personal.Persona;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Optional;
+import java.util.function.Predicate;
+
 
 
 
 public class Consultorio {
-    public String nombre;
-    public String direccion;
-    public LocalDate fechaCreacion;
-    public Collection<Paciente> pacientes;
-    public Collection<Doctor> doctores;
+    private String nombre;
+    private String direccion;
+    private LocalDate fechaCreacion;
+    private Collection<Paciente> pacientes;
+    private Collection<Doctor> doctores;
+
 
 
     public Consultorio(String nombre, String direccion, LocalDate fechaCreacion, Collection<Paciente> pacientes, Collection<Doctor> doctores){
@@ -80,6 +86,37 @@ public class Consultorio {
                 + ", pacientes=" + pacientes + ", doctores=" + doctores + "]";
     }
 
-    
 
+
+    public Persona buscarPersona(String id, Collection<Persona> lista){
+
+        Predicate<Persona> condicion = p -> p.getId().equals(id);
+        Optional<Persona> persona = lista.stream().filter(condicion).findFirst();
+        return persona.orElse(null);
+        
+    }
+
+
+    public Optional<Persona> verificarPersona(Persona persona, Collection<Persona> lista){
+        Predicate<Persona> condicion = p->p.getId().equals(persona.getId());
+        return lista.stream().filter(condicion).findAny();
+    }
+
+    private void validarPersonaExiste(Persona persona, Collection<Persona> lista) {
+        boolean existePersona = verificarPersona(persona, lista).isPresent();
+        if(existePersona){
+            throw new PersonaExistenteException("La persona con ID" + persona.getId()+ "ya existe");
+        }
+    }
+
+    public void agregarPersona(Persona persona, Collection<Persona> lista){
+
+        validarPersonaExiste(persona, lista);
+        lista.add(persona);
+
+    }
+
+    public void eliminarPersona(Persona persona, Collection<Persona> lista){
+        lista.removeIf(p->p.getId().equals(persona.getId()));
+    }
 }

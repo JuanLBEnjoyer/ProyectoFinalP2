@@ -45,12 +45,5 @@ public class Paciente extends Persona {
     public void setCitasProgrmadas(Collection<Cita> citasProgrmadas) {
         this.citasProgramadas = citasProgrmadas;
     }
-
-
-    
-
-
-
-    
     
 }
