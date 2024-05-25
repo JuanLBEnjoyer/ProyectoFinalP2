@@ -94,6 +94,10 @@ public class Paciente extends Persona {
         tratamientosActivos.add(tratamiento);
     }
 
+    public void agregarRecetaMedica(RecetaMedica receta) {
+        this.medicamentos.add(receta);
+    }
+
 
     
 
