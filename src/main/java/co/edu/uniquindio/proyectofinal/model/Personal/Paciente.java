@@ -51,6 +51,8 @@ public class Paciente extends Persona implements Observer1 {
         assert !direccion.isBlank() && !direccion.isEmpty();
     }
 
+    // Getters y Setters
+
     public HistorialMedico getHistorialMedico() {
         return historialMedico;
     }
