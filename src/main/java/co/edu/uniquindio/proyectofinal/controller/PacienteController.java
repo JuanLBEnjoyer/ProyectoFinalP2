@@ -31,6 +31,9 @@ public class PacienteController {
     private TextField txtNombre;
 
     @FXML
+    private TextField txtDireccion;
+
+    @FXML
     void guardarPaciente(ActionEvent event) {
 
         agregarPaciente();
@@ -41,17 +44,17 @@ public class PacienteController {
 
         String nombre = this.txtNombre.getText();
         String cedula = this.txtCedula.getText();
+        String direccion = this.txtDireccion.getText();
     
 
-        Paciente paciente = new Paciente(nombre, cedula, LocalDate.of(2000,2,24) );
+        Paciente paciente = new Paciente(nombre, cedula, LocalDate.of(2000,2,24), null, direccion);
 
         System.out.println(paciente.toString());
 
     }
 
     @FXML
-    void initialize() {
-    }
+    void initialize() {}
 
 }
 
