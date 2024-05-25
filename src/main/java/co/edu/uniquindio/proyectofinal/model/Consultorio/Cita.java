@@ -6,6 +6,11 @@ import java.time.LocalDateTime;
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 
+
+/**
+ * La clase Cita representa una cita médica en el consultorio.
+ * Cada cita tiene un paciente, un doctor, una fecha y hora, un motivo, y una sala asignada.
+ */
 public class Cita {
 
     private LocalDateTime fechaHoraCita;
@@ -15,8 +20,16 @@ public class Cita {
     private EstadoCita estadoCita;
     private String salaCita;
 
-    public Cita(LocalDateTime fechaHoraCita, Paciente paciente, Doctor doctor, String motivo,
-            String salaCita) {
+    /**
+     * Constructor de la clase Cita.
+     * 
+     * @param fechaHoraCita La fecha y hora de la cita.
+     * @param paciente El paciente que asiste a la cita.
+     * @param doctor El doctor que atenderá la cita.
+     * @param motivo El motivo de la cita.
+     * @param salaCita La sala asignada para la cita.
+     */
+    public Cita(LocalDateTime fechaHoraCita, Paciente paciente, Doctor doctor, String motivo, String salaCita) {
         this.fechaHoraCita = fechaHoraCita;
         this.paciente = paciente;
         this.doctor = doctor;
@@ -25,20 +38,20 @@ public class Cita {
         this.salaCita = salaCita;
     }
 
+    // Getters y Setters
+
     public LocalDateTime getFechaHoraCita() {
         return fechaHoraCita;
     }
-
 
     public void setFechaHoraCita(LocalDateTime fechaHoraCita) {
         this.fechaHoraCita = fechaHoraCita;
     }
 
-
     public void setEstadoCita(EstadoCita estadoCita) {
         this.estadoCita = estadoCita;
     }
-    
+
     public Paciente getPaciente() {
         return paciente;
     }
@@ -75,44 +88,64 @@ public class Cita {
         this.salaCita = salaCita;
     }
 
+    /**
+     * Define un tratamiento para el paciente asociado a esta cita.
+     * 
+     * @param fechaInicio La fecha de inicio del tratamiento.
+     * @param nombre El nombre del tratamiento.
+     * @param descripcion La descripción del tratamiento.
+     * @param fechaFin La fecha de finalización del tratamiento.
+     * @param recetaMedica La receta médica asociada al tratamiento.
+     */
     public void definirTratamiento(LocalDate fechaInicio, String nombre, 
-    String descripcion, LocalDate fechaFin, RecetaMedica recetaMedica){
-    paciente.agregarTratamientoActivo(new Tratamiento(fechaInicio, nombre, descripcion, fechaFin, recetaMedica));
-
+                                   String descripcion, LocalDate fechaFin, RecetaMedica recetaMedica) {
+        paciente.agregarTratamientoActivo(new Tratamiento(fechaInicio, nombre, descripcion, fechaFin, recetaMedica));
     }
 
-
+    /**
+     * Actualiza el estado de la cita de acuerdo a la fecha y hora actual.
+     * Si la cita está programada y la fecha y hora actuales son posteriores a la fecha y hora de la cita,
+     * el estado se cambia a "EN_CURSO".
+     */
     public void actualizarEstado() {
         LocalDateTime ahora = LocalDateTime.now();
-        if (estadoCita == EstadoCita.PROGRAMADA) {
-            if (ahora.isAfter(fechaHoraCita)) {
-                this.estadoCita = EstadoCita.EN_CURSO;
-            }
+        if (estadoCita == EstadoCita.PROGRAMADA && ahora.isAfter(fechaHoraCita)) {
+            this.estadoCita = EstadoCita.EN_CURSO;
         }
     }
 
-    public void finalizarCita(){
+    /**
+     * Finaliza la cita, actualizando su estado a "FINALIZADA".
+     * Elimina la cita de las listas de citas pendientes del doctor y citas programadas del paciente.
+     * Agrega la cita al historial médico del paciente.
+     */
+    public void finalizarCita() {
         this.estadoCita = EstadoCita.FINALIZADA;
         Doctor doctorAsociado = getDoctor();
         Paciente pacienteAsociado = getPaciente();
-        if(doctorAsociado != null){
+        if (doctorAsociado != null) {
             doctorAsociado.eliminarCitaPendiente(this);
         }
-
-        if(pacienteAsociado !=null ){
+        if (pacienteAsociado != null) {
             pacienteAsociado.eliminarCitaProgramada(this);
             pacienteAsociado.getHistorialMedico().agregarCitaFinalizada(this);
         }
     }
 
-    public void cancelarCita(){
+    /**
+     * Cancela la cita, actualizando su estado a "CANCELADA".
+     * Elimina la cita de las listas de citas pendientes del doctor y de las citas programadas del paciente.
+     */
+    
+    public void cancelarCita() {
         this.estadoCita = EstadoCita.CANCELADA;
         Doctor doctorAsociado = getDoctor();
-        if(doctorAsociado != null){
+        Paciente pacienteAsociado = getPaciente();
+        if (doctorAsociado != null) {
             doctorAsociado.eliminarCitaPendiente(this);
         }
+        if (pacienteAsociado != null) {
+            pacienteAsociado.eliminarCitaProgramada(this);
+        }
     }
-
-    
-
-} 
+}
