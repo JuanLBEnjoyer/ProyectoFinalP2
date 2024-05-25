@@ -41,10 +41,5 @@ public class Doctor extends Persona {
         citasPendientes.remove(cita);
     }
 
-    public void crearRecetaMedica(Paciente paciente, Collection<Medicamento> mendicamentos, String instrucciones) {
-        RecetaMedica receta = new RecetaMedica(mendicamentos, instrucciones);
-        paciente.agregarRecetaMedica(receta);
-    }
-
 }
 
