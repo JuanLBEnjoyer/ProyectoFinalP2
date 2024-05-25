@@ -2,18 +2,27 @@ package co.edu.uniquindio.proyectofinal.model.Consultorio;
 
 import java.util.Collection;
 
-// Clase RecetaMedica que contiene una colección de medicamentos e instrucciones
+/**
+ * Representa una receta médica que contiene medicamentos y las instrucciones para su administración.
+ */
 public class RecetaMedica {
+
     private Collection<Medicamento> medicamentos;
     private String instrucciones;
 
-    // Constructor de la clase RecetaMedica
+    /**
+     * Crea una nueva receta médica con los medicamentos y las instrucciones especificadas.
+     * 
+     * @param medicamentos la colección de medicamentos recetados
+     * @param instrucciones las instrucciones para la administración de los medicamentos
+     */
     public RecetaMedica(Collection<Medicamento> medicamentos, String instrucciones) {
         this.medicamentos = medicamentos;
         this.instrucciones = instrucciones;
     }
 
-    // Getter y setter para la colección de medicamentos
+    // Getters y Setters
+
     public Collection<Medicamento> getMedicamentos() {
         return medicamentos;
     }
@@ -22,7 +31,6 @@ public class RecetaMedica {
         this.medicamentos = medicamentos;
     }
 
-    // Getter y setter para las instrucciones
     public String getInstrucciones() {
         return instrucciones;
     }

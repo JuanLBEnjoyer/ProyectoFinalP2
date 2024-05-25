@@ -1,17 +1,23 @@
 package co.edu.uniquindio.proyectofinal.model.Consultorio;
 
-// Clase base abstracta Medicamento
+/**
+ * Clase base abstracta para representar un medicamento en el sistema.
+ */
 public abstract class Medicamento {
     private String nombre;
     private String dosis;
 
-    // Constructor de la clase Medicamento
+    /**
+     * Crea un nuevo medicamento con el nombre y la dosis especificados.
+     * 
+     * @param nombre El nombre del medicamento.
+     * @param dosis  La dosis del medicamento.
+     */
     public Medicamento(String nombre, String dosis) {
         this.nombre = nombre;
         this.dosis = dosis;
     }
-
-    // Getter y setter para el nombre del medicamento
+    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -20,7 +26,6 @@ public abstract class Medicamento {
         this.nombre = nombre;
     }
 
-    // Getter y setter para la dosis del medicamento
     public String getDosis() {
         return dosis;
     }
@@ -29,6 +34,10 @@ public abstract class Medicamento {
         this.dosis = dosis;
     }
 
-    // Método abstracto para obtener la forma de administración del medicamento
+    /**
+     * Método abstracto para obtener la forma de administración del medicamento.
+     * 
+     * @return La forma de administración del medicamento.
+     */
     public abstract String getFormaAdministracion();
 }
