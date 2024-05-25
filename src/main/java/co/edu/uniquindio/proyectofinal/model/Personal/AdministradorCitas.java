@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
 
 /**
  * Esta clase representa a un Administrador de Citas dentro del sistema.
@@ -66,8 +67,9 @@ public class AdministradorCitas extends Persona {
         return crucesPaciente || crucesDoctor || diferenciaHoraPaciente || diferenciaHoraDoctor;
     }    
     
-    public void cancelarCita(CitaConcreta cita){
+    public void cancelarCita(CitaConcreta cita) {
         cita.cancelarCita();
+        cita.getPaciente().eliminarCitaProgramada(cita);
     }
 
     

@@ -8,19 +8,19 @@ import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 
 
 public class GestorCitas implements Sujeto {
-    private Collection<Observer> observers;
+    private Collection<Observer1> observers;
 
     public GestorCitas() {
         this.observers = new ArrayList<>();
     }
 
     @Override
-    public void addObserver(Observer observer) {
+    public void addObserver(Observer1 observer) {
         observers.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer observer) {
+    public void removeObserver(Observer1 observer) {
         observers.remove(observer);
     }
 
@@ -29,7 +29,7 @@ public class GestorCitas implements Sujeto {
         observers.forEach(observer -> observer.update(mensaje));
     }
 
-    public boolean containsObserver(Observer observer) {
+    public boolean containsObserver(Observer1 observer) {
         return observers.contains(observer);
     }
     

@@ -6,8 +6,8 @@ import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 
 public interface Sujeto {
 
-    void addObserver(Observer observer);
-    void removeObserver(Observer observer);
+    void addObserver(Observer1 observer);
+    void removeObserver(Observer1 observer);
     void notifyObservers(String mensaje);
     void verificarCitasProximas(Collection<CitaConcreta> citas);
     

@@ -9,8 +9,9 @@ import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.RecetaMedica;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Tratamiento;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.Observer1;
 
-public class Paciente extends Persona {
+public class Paciente extends Persona implements Observer1 {
 
     private Collection<CitaConcreta> citasProgramadas;
     private HistorialMedico historialMedico;
@@ -97,6 +98,11 @@ public class Paciente extends Persona {
 
     public void agregarRecetaMedica(RecetaMedica receta) {
         this.medicamentos.add(receta);
+    }
+
+    @Override
+    public void update(String mensaje) {
+        System.out.println("Notificación para " + getNombre() + ": " + mensaje);
     }
 
 }
