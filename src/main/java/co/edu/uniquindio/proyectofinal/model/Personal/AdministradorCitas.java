@@ -32,12 +32,12 @@ public class AdministradorCitas extends Persona {
      * @throws IllegalArgumentException Si se intenta programar una cita que se cruza con otra cita o si la diferencia de tiempo es menor a una hora.
      */
     public void programarCita(LocalDateTime fechaHoraCita, Paciente paciente, Doctor doctor, String motivo, String salaCita) {
-        Cita nuevaCita = new Cita(fechaHoraCita, paciente, doctor, motivo, salaCita);
+        CitaConcreta nuevaCita = new CitaConcreta(fechaHoraCita, paciente, doctor, motivo, salaCita);
         paciente.agregarCitaProgramada(nuevaCita);
         doctor.agregarCitaPendiente(nuevaCita);
     }
 
-    public void cancelarCita(Cita cita){
+    public void cancelarCita(CitaConcreta cita){
         cita.cancelarCita();
     }
 }

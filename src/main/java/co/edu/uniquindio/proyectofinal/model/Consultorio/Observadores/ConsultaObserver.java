@@ -17,3 +17,4 @@ public class ConsultaObserver implements Observer {
         System.out.println("El Observer " + nombreObserver + " recibió el mensaje: " + mensaje);
     }
 }
+

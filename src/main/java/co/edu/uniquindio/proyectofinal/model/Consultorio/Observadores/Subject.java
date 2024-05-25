@@ -16,3 +16,4 @@ public interface Subject {
     // Método abstracto para obtener la lista de observadores.
     List<Observer> getObservers();
 }
+

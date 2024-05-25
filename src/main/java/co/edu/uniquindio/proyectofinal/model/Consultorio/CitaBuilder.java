@@ -8,12 +8,15 @@ import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 public interface CitaBuilder {
 
     void tipoCita(String tipoCita);
-    void fechaHoraCita (LocalDateTime fechaHoraCita);
-    void consultorio (String consultorio);
-    void Doctor (Doctor doctor);
-    void paciente (Paciente paciente);
-    Cita build();
-    
 
-    
+    void fechaHoraCita(LocalDateTime fechaHoraCita);
+
+    void consultorio(String consultorio);
+
+    void Doctor(Doctor doctor);
+
+    void paciente(Paciente paciente);
+
+    Cita build();
+
 }

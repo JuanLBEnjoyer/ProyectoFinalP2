@@ -122,3 +122,4 @@ public class ConsultaBuilder implements CitaBuilder, Subject {
         return cita;
     }
 }
+
