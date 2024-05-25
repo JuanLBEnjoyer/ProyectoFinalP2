@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Cita;
+import co.edu.uniquindio.proyectofinal.model.Consultorio.Medicamento;
+import co.edu.uniquindio.proyectofinal.model.Consultorio.RecetaMedica;
 
 public class Doctor extends Persona {
 
@@ -37,6 +39,10 @@ public class Doctor extends Persona {
 
     public void eliminarCitaPendiente(Cita cita) {
         citasPendientes.remove(cita);
+    }
+
+    public RecetaMedica crearRecetaMedica(Collection<Medicamento> mendicamentos, String instrucciones ){
+        RecetaMedica receta = new RecetaMedica(mendicamentos, instrucciones);
     }
 
     

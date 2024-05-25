@@ -18,7 +18,7 @@ public class Tratamiento {
         this.descripcion = descripcion;
         this.fechaFin = fechaFin;
         this.recetaMedica = recetaMedica;
-        this.estadoTratamiento = EstadoTratamiento.ACTIVO; 
+        this.estadoTratamiento = EstadoTratamiento.PROGRAMADO; 
     }
 
     public LocalDate getFechaInicio() {
@@ -68,4 +68,14 @@ public class Tratamiento {
     public void setRecetaMedica(RecetaMedica recetaMedica){
         this.recetaMedica = recetaMedica;
     }
+
+    public void actualizarEstado() {
+        LocalDate hoy = LocalDate.now();
+        if (hoy.equals(fechaInicio)) {
+            this.estadoTratamiento = EstadoTratamiento.ACTIVO;
+        } else if (hoy.isAfter(fechaFin)) {
+            this.estadoTratamiento = EstadoTratamiento.FINALIZADO;
+        }
+    }
+    
 }
