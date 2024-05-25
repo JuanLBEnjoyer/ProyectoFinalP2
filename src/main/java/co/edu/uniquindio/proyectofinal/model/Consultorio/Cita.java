@@ -1,50 +1,47 @@
 package co.edu.uniquindio.proyectofinal.model.Consultorio;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 
-public class Cita {
+// Clase abstracta que representa una cita médica.
+abstract class Cita {
+
+    private String tipoCita;
 
     private LocalDateTime fechaHoraCita;
-    private Paciente paciente;
-    private Doctor doctor;
-    private String motivo;
-    private EstadoCita estadoCita;
-    private String salaCita;
 
-    public Cita(LocalDateTime fechaHoraCita, Paciente paciente, Doctor doctor, String motivo,
-            String salaCita) {
-        this.fechaHoraCita = fechaHoraCita;
-        this.paciente = paciente;
-        this.doctor = doctor;
-        this.motivo = motivo;
-        this.estadoCita = EstadoCita.PROGRAMADA;
-        this.salaCita = salaCita;
+    private String consultorio;
+
+    private Doctor doctor;
+
+    private Paciente paciente;
+
+    private EstadoCita estadoCita;
+
+    public String getTipoCita() {
+        return tipoCita;
+    }
+
+    public void setTipoCita(String tipoCita) {
+        this.tipoCita = tipoCita;
     }
 
     public LocalDateTime getFechaHoraCita() {
         return fechaHoraCita;
     }
 
-
     public void setFechaHoraCita(LocalDateTime fechaHoraCita) {
         this.fechaHoraCita = fechaHoraCita;
     }
 
-
-    public void setEstadoCita(EstadoCita estadoCita) {
-        this.estadoCita = estadoCita;
-    }
-    
-    public Paciente getPaciente() {
-        return paciente;
+    public String getConsultorio() {
+        return consultorio;
     }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+    public void setConsultorio(String consultorio) {
+        this.consultorio = consultorio;
     }
 
     public Doctor getDoctor() {
@@ -55,64 +52,31 @@ public class Cita {
         this.doctor = doctor;
     }
 
-    public String getMotivo() {
-        return motivo;
+    public Paciente getPaciente() {
+        return paciente;
     }
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     public EstadoCita getEstadoCita() {
         return estadoCita;
     }
 
-    public String getSalaCita() {
-        return salaCita;
+    public void setEstadoCita(EstadoCita estadoCita) {
+        this.estadoCita = estadoCita;
     }
 
-    public void setSalaCita(String salaCita) {
-        this.salaCita = salaCita;
+    // Método toString para obtener una representación en cadena de la cita
+    @Override
+    public String toString() {
+        return "Cita [tipoCita=" + tipoCita +
+                ", fechaCita=" + fechaHoraCita +
+                ", consultorio=" + consultorio +
+                ", doctor=" + doctor +
+                ", paciente=" + paciente +
+                "]";
     }
 
-    public void definirTratamiento(LocalDate fechaInicio, String nombre, 
-    String descripcion, LocalDate fechaFin, RecetaMedica recetaMedica){
-    paciente.agregarTratamientoActivo(new Tratamiento(fechaInicio, nombre, descripcion, fechaFin, recetaMedica));
-
-    }
-
-
-    public void actualizarEstado() {
-        LocalDateTime ahora = LocalDateTime.now();
-        if (estadoCita == EstadoCita.PROGRAMADA) {
-            if (ahora.isAfter(fechaHoraCita)) {
-                this.estadoCita = EstadoCita.EN_CURSO;
-            }
-        }
-    }
-
-    public void finalizarCita(){
-        this.estadoCita = EstadoCita.FINALIZADA;
-        Doctor doctorAsociado = getDoctor();
-        Paciente pacienteAsociado = getPaciente();
-        if(doctorAsociado != null){
-            doctorAsociado.eliminarCitaPendiente(this);
-        }
-
-        if(pacienteAsociado !=null ){
-            pacienteAsociado.eliminarCitaProgramada(this);
-            pacienteAsociado.getHistorialMedico().agregarCitaFinalizada(this);
-        }
-    }
-
-    public void cancelarCita(){
-        this.estadoCita = EstadoCita.CANCELADA;
-        Doctor doctorAsociado = getDoctor();
-        if(doctorAsociado != null){
-            doctorAsociado.eliminarCitaPendiente(this);
-        }
-    }
-
-    
-
-} 
+}

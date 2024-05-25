@@ -6,23 +6,24 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
-import co.edu.uniquindio.proyectofinal.model.Consultorio.Cita;
+import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.RecetaMedica;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Tratamiento;
 
 public class Paciente extends Persona {
 
-    private Collection<Cita> citasProgramadas;
+    private Collection<CitaConcreta> citasProgramadas;
     private HistorialMedico historialMedico;
     private Collection<Tratamiento> tratamientosActivos;
     private Collection<RecetaMedica> medicamentos;
     private String direccion;
 
-    public Paciente(String nombre, String id, LocalDate fechaDeNacimiento, HistorialMedico historialMedico, String direccion) {
+    public Paciente(String nombre, String id, LocalDate fechaDeNacimiento, HistorialMedico historialMedico,
+            String direccion) {
         super(nombre, id, fechaDeNacimiento);
 
         this.historialMedico = historialMedico;
-        this.citasProgramadas = new ArrayList<Cita>();
+        this.citasProgramadas = new ArrayList<CitaConcreta>();
         this.tratamientosActivos = new ArrayList<Tratamiento>();
         this.medicamentos = new ArrayList<RecetaMedica>();
         this.direccion = direccion;
@@ -42,11 +43,11 @@ public class Paciente extends Persona {
         this.historialMedico = historialMedico;
     }
 
-    public Collection<Cita> getCitasProgrmadas() {
+    public Collection<CitaConcreta> getCitasProgrmadas() {
         return citasProgramadas;
     }
 
-    public void setCitasProgrmadas(Collection<Cita> citasProgrmadas) {
+    public void setCitasProgrmadas(Collection<CitaConcreta> citasProgrmadas) {
         this.citasProgramadas = citasProgrmadas;
     }
 
@@ -58,11 +59,11 @@ public class Paciente extends Persona {
         this.tratamientosActivos = tratamientosActivos;
     }
 
-    public Collection<Cita> getCitasProgramadas() {
+    public Collection<CitaConcreta> getCitasProgramadas() {
         return citasProgramadas;
     }
 
-    public void setCitasProgramadas(Collection<Cita> citasProgramadas) {
+    public void setCitasProgramadas(Collection<CitaConcreta> citasProgramadas) {
         this.citasProgramadas = citasProgramadas;
     }
 
@@ -82,11 +83,11 @@ public class Paciente extends Persona {
         this.direccion = direccion;
     }
 
-    public void agregarCitaProgramada(Cita cita) {
+    public void agregarCitaProgramada(CitaConcreta cita) {
         citasProgramadas.add(cita);
     }
 
-    public void eliminarCitaProgramada(Cita cita) {
+    public void eliminarCitaProgramada(CitaConcreta cita) {
         citasProgramadas.remove(cita);
     }
 

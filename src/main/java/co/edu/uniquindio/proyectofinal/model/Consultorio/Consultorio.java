@@ -10,15 +10,12 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 
-
-
 public class Consultorio {
     private String nombre;
     private String direccion;
     private LocalDate fechaCreacion;
     private Collection<Paciente> pacientes;
     private Collection<Doctor> doctores;
-
 
 
     public Consultorio(String nombre, String direccion, LocalDate fechaCreacion, Collection<Paciente> pacientes, Collection<Doctor> doctores){

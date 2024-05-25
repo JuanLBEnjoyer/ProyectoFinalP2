@@ -3,16 +3,17 @@ package co.edu.uniquindio.proyectofinal.model.Personal;
 import java.time.LocalDate;
 import java.util.Collection;
 
-import co.edu.uniquindio.proyectofinal.model.Consultorio.Cita;
+import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Medicamento;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.RecetaMedica;
 
 public class Doctor extends Persona {
 
     private String especialidad;
-    private Collection<Cita> citasPendientes; 
+    private Collection<CitaConcreta> citasPendientes;
 
-    public Doctor(String especialidad, Collection<Cita> citasPendientes, String nombre, String id, LocalDate fechaNacimiento) {
+    public Doctor(String especialidad, Collection<CitaConcreta> citasPendientes, String nombre, String id,
+            LocalDate fechaNacimiento) {
         super(nombre, id, fechaNacimiento);
 
         this.especialidad = especialidad;
@@ -28,23 +29,21 @@ public class Doctor extends Persona {
         this.especialidad = especialidad;
     }
 
-    public Collection<Cita> getCitasPendientes() {
+    public Collection<CitaConcreta> getCitasPendientes() {
         return citasPendientes;
     }
 
-
-    public void agregarCitaPendiente(Cita cita) {
+    public void agregarCitaPendiente(CitaConcreta cita) {
         citasPendientes.add(cita);
     }
 
-    public void eliminarCitaPendiente(Cita cita) {
+    public void eliminarCitaPendiente(CitaConcreta cita) {
         citasPendientes.remove(cita);
     }
 
-    public void crearRecetaMedica(Paciente paciente, Collection<Medicamento> mendicamentos, String instrucciones ){
+    public void crearRecetaMedica(Paciente paciente, Collection<Medicamento> mendicamentos, String instrucciones) {
         RecetaMedica receta = new RecetaMedica(mendicamentos, instrucciones);
         paciente.agregarRecetaMedica(receta);
     }
 
-    
 }
