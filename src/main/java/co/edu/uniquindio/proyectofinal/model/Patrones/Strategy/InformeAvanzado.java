@@ -8,7 +8,7 @@ public class InformeAvanzado implements InformeStrategy {
     public void generarInforme(HistorialMedico historial) {
         System.out.println("Informe Avanzado del Historial Médico:");
         System.out.println("Citas:");
-        historial.getCitasProgramadas().forEach(cita -> System.out.println(" - " + cita));
+        historial.getCitasFinalizadas().forEach(cita -> System.out.println(" - " + cita));
         System.out.println("Tratamientos:");
         historial.getTratamientos().forEach(tratamiento -> System.out.println(" - " + tratamiento));
     }
