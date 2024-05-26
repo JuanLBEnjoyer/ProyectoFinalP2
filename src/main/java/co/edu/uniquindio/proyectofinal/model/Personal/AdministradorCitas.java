@@ -2,12 +2,13 @@ package co.edu.uniquindio.proyectofinal.model.Personal;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.List;
+import java.util.Random;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
-import co.edu.uniquindio.proyectofinal.model.Patrones.Iterador.IteradorAleatorio;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
 
 /**
@@ -18,6 +19,7 @@ public class AdministradorCitas extends Persona {
 
     private GestorCitas gestorCitas;
     private Consultorio consultorio;
+    private Random random;
 
     /**
      * Constructor de la clase AdministradorCitas.
@@ -32,6 +34,7 @@ public class AdministradorCitas extends Persona {
         super(nombre, id, fechaNacimiento);
         this.gestorCitas = gestorCitas;
         this.consultorio = consultorio;
+        this.random = new Random();
     }
 
     /**
@@ -43,14 +46,19 @@ public class AdministradorCitas extends Persona {
      * @param salaCita       La sala donde se realizará la cita.
      */
     public void programarCita(LocalDateTime fechaHoraCita, Paciente paciente, String motivo, String salaCita) {
-        Collection<Doctor> doctoresActivos = consultorio.buscarDoctoresActivos();
+        Collection<Doctor> doctoresActivosColeccion = consultorio.buscarDoctoresActivos();
 
-        if (doctoresActivos.isEmpty()) {
+        if (doctoresActivosColeccion.isEmpty()) {
             throw new IllegalStateException("No hay doctores activos disponibles para programar citas.");
         }
 
-        IteradorAleatorio<Doctor> iterador = new IteradorAleatorio<>(doctoresActivos);
-        Doctor doctor = iterador.next();
+          // Convertir la colección de doctores activos a una lista
+    List<Doctor> doctoresActivos = new ArrayList<>(doctoresActivosColeccion);
+
+        // Seleccionar un doctor activo aleatoriamente
+        Doctor doctor = doctoresActivos.get(random.nextInt(doctoresActivos.size()));
+
+        // Verificar si la cita se cruza con otra cita del paciente o del doctor
 
         if (verificarCruceCitas(fechaHoraCita, paciente, doctor)) {
             throw new IllegalArgumentException("No se puede programar la cita porque se cruza con otra cita.");
@@ -102,6 +110,5 @@ public class AdministradorCitas extends Persona {
      */
     public void cancelarCita(CitaConcreta cita) {
         cita.cancelarCita();
-        cita.getPaciente().eliminarCitaProgramada(cita);
     }
 }
