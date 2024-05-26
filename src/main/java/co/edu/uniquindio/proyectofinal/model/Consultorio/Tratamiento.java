@@ -2,6 +2,8 @@ package co.edu.uniquindio.proyectofinal.model.Consultorio;
 
 import java.time.LocalDate;
 
+import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod.RecetaMedica;
+
 /**
  * Representa un tratamiento médico que incluye información como fecha de inicio, nombre, descripción, fecha de fin,
  * receta médica asociada y estado del tratamiento.

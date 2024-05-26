@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinal.model.Consultorio;
+package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod;
 
 // Clase MedicamentoPastillas que extiende de Medicamento
 class MedicamentoPastillas extends Medicamento {

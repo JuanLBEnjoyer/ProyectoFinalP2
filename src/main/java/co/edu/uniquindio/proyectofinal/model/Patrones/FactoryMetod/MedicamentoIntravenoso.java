@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinal.model.Consultorio;
+package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod;
 
 // Clase MedicamentoIntravenoso que extiende de Medicamento
 public class MedicamentoIntravenoso extends Medicamento {

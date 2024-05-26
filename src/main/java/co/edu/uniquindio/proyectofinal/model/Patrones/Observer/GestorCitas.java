@@ -12,7 +12,7 @@ import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
  * Implementa la interfaz Sujeto para gestionar los observadores.
  */
 public class GestorCitas implements Sujeto {
-    private Collection<Observer1> observers;
+    private Collection<Observer> observers;
 
     /**
      * Constructor de la clase GestorCitas.
@@ -28,7 +28,7 @@ public class GestorCitas implements Sujeto {
      * @param observer El observador a agregar.
      */
     @Override
-    public void addObserver(Observer1 observer) {
+    public void addObserver(Observer observer) {
         observers.add(observer);
     }
 
@@ -38,7 +38,7 @@ public class GestorCitas implements Sujeto {
      * @param observer El observador a eliminar.
      */
     @Override
-    public void removeObserver(Observer1 observer) {
+    public void removeObserver(Observer observer) {
         observers.remove(observer);
     }
 
@@ -58,7 +58,7 @@ public class GestorCitas implements Sujeto {
      * @param observer El observador a verificar.
      * @return true si el observador está en la lista, false en caso contrario.
      */
-    public boolean containsObserver(Observer1 observer) {
+    public boolean containsObserver(Observer observer) {
         return observers.contains(observer);
     }
 

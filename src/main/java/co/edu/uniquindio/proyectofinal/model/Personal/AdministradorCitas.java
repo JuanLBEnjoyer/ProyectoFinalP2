@@ -74,4 +74,3 @@ public class AdministradorCitas extends Persona {
 
     
 }
-

@@ -3,7 +3,7 @@ package co.edu.uniquindio.proyectofinal.model.Patrones.Observer;
 /**
  * La interfaz Observer1 define el método que los observadores deben implementar para recibir actualizaciones.
  */
-public interface Observer1 {
+public interface Observer {
 
     /**
      * Este método se llama cuando el sujeto quiere notificar a los observadores.

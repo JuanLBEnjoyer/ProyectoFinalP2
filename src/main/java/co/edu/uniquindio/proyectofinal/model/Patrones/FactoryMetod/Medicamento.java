@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinal.model.Consultorio;
+package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod;
 
 /**
  * Clase base abstracta para representar un medicamento en el sistema.
@@ -17,6 +17,7 @@ public abstract class Medicamento {
         this.nombre = nombre;
         this.dosis = dosis;
     }
+
     // Getters y Setters
     public String getNombre() {
         return nombre;

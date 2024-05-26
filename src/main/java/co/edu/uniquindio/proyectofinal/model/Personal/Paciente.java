@@ -7,15 +7,15 @@ import java.util.Collection;
 
 import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
-import co.edu.uniquindio.proyectofinal.model.Consultorio.RecetaMedica;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Tratamiento;
-import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.Observer1;
+import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod.RecetaMedica;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.Observer;
 
 /**
  * La clase Paciente representa a un paciente en el sistema de gestión médica.
  * Extiende de la clase Persona y actúa como observador en el patrón Observer.
  */
-public class Paciente extends Persona implements Observer1 {
+public class Paciente extends Persona implements Observer {
 
     private HistorialMedico historialMedico;
     private Collection<CitaConcreta> citasProgramadas;

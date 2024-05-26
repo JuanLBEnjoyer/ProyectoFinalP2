@@ -1,9 +1,10 @@
-package co.edu.uniquindio.proyectofinal.model.Consultorio;
+package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod;
 
 import java.util.Collection;
 
 /**
- * Representa una receta médica que contiene medicamentos y las instrucciones para su administración.
+ * Representa una receta médica que contiene medicamentos y las instrucciones
+ * para su administración.
  */
 public class RecetaMedica {
 
@@ -11,10 +12,12 @@ public class RecetaMedica {
     private String instrucciones;
 
     /**
-     * Crea una nueva receta médica con los medicamentos y las instrucciones especificadas.
+     * Crea una nueva receta médica con los medicamentos y las instrucciones
+     * especificadas.
      * 
-     * @param medicamentos la colección de medicamentos recetados
-     * @param instrucciones las instrucciones para la administración de los medicamentos
+     * @param medicamentos  la colección de medicamentos recetados
+     * @param instrucciones las instrucciones para la administración de los
+     *                      medicamentos
      */
     public RecetaMedica(Collection<Medicamento> medicamentos, String instrucciones) {
         this.medicamentos = medicamentos;
@@ -37,5 +40,5 @@ public class RecetaMedica {
 
     public void setInstrucciones(String instrucciones) {
         this.instrucciones = instrucciones;
-    }    
+    }
 }

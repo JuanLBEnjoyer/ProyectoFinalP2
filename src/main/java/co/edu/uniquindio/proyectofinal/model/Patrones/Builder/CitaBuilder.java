@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinal.model.Consultorio;
+package co.edu.uniquindio.proyectofinal.model.Patrones.Builder;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +13,7 @@ public interface CitaBuilder {
 
     void consultorio(String consultorio);
 
-    void Doctor(Doctor doctor);
+    void doctor(Doctor doctor);
 
     void paciente(Paciente paciente);
 
