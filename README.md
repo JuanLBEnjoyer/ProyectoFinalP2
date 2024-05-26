@@ -1,7 +1,7 @@
 # Sistema de Gestión de Consultorio Médico
 Miembros: Juan Pablo Galeano Correa, Mateo Gomez Marulanda
 # Descripción General
-Este proyecto consiste en desarrollar un sistema de gestión para un consultorio médico que permita la administración eficiente de pacientes, doctores, citas, tratamientos y recetas médicas. El sistema maneja la programación y cancelación de citas, gestiona los historiales médicos de los pacientes, y permite a los doctores emitir recetas y definir tratamientos.
+El Sistema de Gestión de Consultorio Médico es una aplicación diseñada para administrar la información de un consultorio médico, incluyendo pacientes, citas médicas, historiales y tratamientos, entre otros aspectos importantes. El sistema está diseñado para facilitar la gestión de datos y mejorar la atención médica brindada por el consultorio.
 
 # Funcionalidades Principales
 
