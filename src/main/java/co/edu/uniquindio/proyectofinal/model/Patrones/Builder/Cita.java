@@ -2,7 +2,7 @@ package co.edu.uniquindio.proyectofinal.model.Patrones.Builder;
 
 import java.time.LocalDateTime;
 
-import co.edu.uniquindio.proyectofinal.model.Consultorio.EstadoCita;
+import co.edu.uniquindio.proyectofinal.model.Enum.EstadoCita;
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 

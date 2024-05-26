@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinal.model.Consultorio;
+package co.edu.uniquindio.proyectofinal.model.Enum;
 
 /**
  * Representa los posibles estados de una cita médica.

@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
-import co.edu.uniquindio.proyectofinal.model.Consultorio.EstadoCita;
-import co.edu.uniquindio.proyectofinal.model.Consultorio.EstadoTratamiento;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Tratamiento;
+import co.edu.uniquindio.proyectofinal.model.Enum.EstadoCita;
+import co.edu.uniquindio.proyectofinal.model.Enum.EstadoTratamiento;
 
 public class HistorialMedico {
 
