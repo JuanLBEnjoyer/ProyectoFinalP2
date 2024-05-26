@@ -2,8 +2,14 @@ package co.edu.uniquindio.proyectofinal.model.Personal;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
+import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
+import co.edu.uniquindio.proyectofinal.model.Enum.EstadoDoctor;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
 
 /**
@@ -13,6 +19,7 @@ import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
 public class AdministradorCitas extends Persona {
 
     private GestorCitas gestorCitas;
+    private Consultorio consultorio;
 
     /**
      * Constructor de la clase AdministradorCitas.
@@ -20,14 +27,22 @@ public class AdministradorCitas extends Persona {
      * @param id El identificador único del administrador de citas.
      * @param fechaNacimiento La fecha de nacimiento del administrador de citas.
      */
-    public AdministradorCitas(String nombre, String id, LocalDate fechaNacimiento, GestorCitas gestorCitas) {
+    public AdministradorCitas(Consultorio consultorio, String nombre, String id, LocalDate fechaNacimiento, GestorCitas gestorCitas) {
         super(nombre, id, fechaNacimiento);
         this.gestorCitas = gestorCitas;
+        this.consultorio = consultorio;
     }
 
 
     public void programarCita(LocalDateTime fechaHoraCita, Paciente paciente, Doctor doctor, String motivo, String salaCita) {
-        // Verificar si hay una cita previa del paciente o del doctor en el mismo horario
+        
+
+    Collection<Doctor> doctoresActivos = consultorio.buscarDoctoresActivos();
+
+    if (doctoresActivos.isEmpty()) {
+        throw new IllegalStateException("No hay doctores activos disponibles para programar citas.");
+    }
+
         if (verificarCruceCitas(fechaHoraCita, paciente, doctor)) {
             throw new IllegalArgumentException("No se puede programar la cita porque se cruza con otra cita.");
         }

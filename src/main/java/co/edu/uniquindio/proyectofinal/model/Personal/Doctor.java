@@ -44,6 +44,10 @@ public class Doctor extends Persona {
         }
     }
 
+    public EstadoDoctor getEstado(){
+        return estado;
+    }
+
     public void agregarCitaPendiente(CitaConcreta cita) {
         citasPendientes.add(cita);
     }

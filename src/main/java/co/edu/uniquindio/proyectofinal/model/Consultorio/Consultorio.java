@@ -1,4 +1,5 @@
 package co.edu.uniquindio.proyectofinal.model.Consultorio;
+import co.edu.uniquindio.proyectofinal.model.Enum.EstadoDoctor;
 import co.edu.uniquindio.proyectofinal.model.Exception.PersonaExistenteException;
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 
 public class Consultorio {
@@ -147,5 +149,11 @@ public class Consultorio {
     */
     public void eliminarPersona(Persona persona, Collection<Persona> lista) {
         lista.remove(persona);
+    }
+
+    public Collection<Doctor> buscarDoctoresActivos() {
+        return doctores.stream()
+                .filter(doctor -> doctor.getEstado().equals(EstadoDoctor.ACTIVO))
+                .collect(Collectors.toList());
     }
 }
