@@ -2,8 +2,16 @@ package co.edu.uniquindio.proyectofinal.model.Patrones.Strategy;
 
 import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
 
+/**
+ * Clase InformeBasico que implementa la estrategia para generar un informe básico del historial médico.
+ */
 public class InformeBasico implements InformeStrategy {
 
+    /**
+     * Genera un informe básico del historial médico.
+     * 
+     * @param historial El historial médico del cual se generará el informe.
+     */
     @Override
     public void generarInforme(HistorialMedico historial) {
         // Lógica para generar el informe básico
@@ -20,5 +28,4 @@ public class InformeBasico implements InformeStrategy {
         System.out.println(" - Programados: " + tratamientosProgramados);
         System.out.println(" - Finalizados: " + tratamientosFinalizados);
     }
-    
 }

@@ -10,6 +10,7 @@ import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Tratamiento;
 import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod.RecetaMedica;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.Observer;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Strategy.ContextoInforme;
 
 /**
  * La clase Paciente representa a un paciente en el sistema de gestión médica.
@@ -22,6 +23,7 @@ public class Paciente extends Persona implements Observer {
     private Collection<Tratamiento> tratamientosActivos;
     private Collection<RecetaMedica> medicamentos;
     private String direccion;
+    private ContextoInforme contextoInforme;
 
     /**
      * Constructor de la clase Paciente.
@@ -43,6 +45,7 @@ public class Paciente extends Persona implements Observer {
         this.tratamientosActivos = new ArrayList<Tratamiento>();
         this.medicamentos = new ArrayList<RecetaMedica>();
         this.direccion = direccion;
+        this.contextoInforme = new ContextoInforme();
 
         assert !nombre.isBlank() && !nombre.isEmpty();
         assert !id.isBlank() && !id.isEmpty();
@@ -136,6 +139,10 @@ public class Paciente extends Persona implements Observer {
     @Override
     public void update(String mensaje) {
         System.out.println("Notificación para " + getNombre() + ": " + mensaje);
+    }
+
+    public void solicitarInforme(){
+        contextoInforme.generarInforme(historialMedico);
     }
 
 }
