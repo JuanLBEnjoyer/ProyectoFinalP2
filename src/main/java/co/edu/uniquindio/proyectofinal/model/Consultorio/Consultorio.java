@@ -167,4 +167,12 @@ public class Consultorio {
         return new IteradorDoctoresActivos(doctores);
     }
 
+    public AdministradorCitas crearAdministrador(String nombre, String id, LocalDate fechaDeNacimiento){
+
+     AdministradorCitas admin = new AdministradorCitas(this, nombre, id, fechaDeNacimiento);
+
+     return admin;
+
+    }
+
 }

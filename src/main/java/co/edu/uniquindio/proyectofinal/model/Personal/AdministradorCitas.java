@@ -30,9 +30,9 @@ public class AdministradorCitas extends Persona {
      * @param fechaNacimiento  La fecha de nacimiento del administrador de citas.
      * @param gestorCitas      El gestor de citas para manejar las notificaciones.
      */
-    public AdministradorCitas(Consultorio consultorio, String nombre, String id, LocalDate fechaNacimiento, GestorCitas gestorCitas) {
+    public AdministradorCitas(Consultorio consultorio, String nombre, String id, LocalDate fechaNacimiento) {
         super(nombre, id, fechaNacimiento);
-        this.gestorCitas = gestorCitas;
+        this.gestorCitas = new GestorCitas();
         this.consultorio = consultorio;
         this.random = new Random();
     }
