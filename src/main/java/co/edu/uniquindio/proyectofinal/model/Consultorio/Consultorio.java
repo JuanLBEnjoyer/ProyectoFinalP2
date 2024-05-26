@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyectofinal.model.Consultorio;
 import co.edu.uniquindio.proyectofinal.model.Enum.EstadoDoctor;
 import co.edu.uniquindio.proyectofinal.model.Exception.PersonaExistenteException;
+import co.edu.uniquindio.proyectofinal.model.Personal.AdministradorCitas;
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 import co.edu.uniquindio.proyectofinal.model.Personal.Persona;
@@ -16,6 +17,7 @@ public class Consultorio {
     private String nombre;
     private String direccion;
     private LocalDate fechaCreacion;
+    private AdministradorCitas administradorCitas;
     private Collection<Paciente> pacientes;
     private Collection<Doctor> doctores;
 
@@ -24,15 +26,17 @@ public class Consultorio {
      * @param nombre El nombre del consultorio.
      * @param direccion La dirección del consultorio.
      * @param fechaCreacion La fecha de creación del consultorio.
+     * @param administradorCitas El administrador de citas del consultorio.
      * @param pacientes La colección de pacientes del consultorio.
      * @param doctores La colección de doctores del consultorio.
      */
-    public Consultorio(String nombre, String direccion, LocalDate fechaCreacion, Collection<Paciente> pacientes, Collection<Doctor> doctores){
+    public Consultorio(String nombre, String direccion, LocalDate fechaCreacion,AdministradorCitas administradorCitas, Collection<Paciente> pacientes, Collection<Doctor> doctores){
         this.nombre = nombre;
         this.direccion = direccion;
         this.fechaCreacion = LocalDate.now();
         this.pacientes = pacientes;
         this.doctores = doctores;
+        this.administradorCitas = administradorCitas;
     }
 
     // Getters y Setters
@@ -64,6 +68,14 @@ public class Consultorio {
 
     public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public AdministradorCitas getAdministradorCitas(){
+        return administradorCitas;
+    }
+
+    public void setAdministradorCitas(AdministradorCitas administradorCitas){
+        this.administradorCitas = administradorCitas;
     }
 
 
