@@ -3,13 +3,11 @@ package co.edu.uniquindio.proyectofinal.model.Personal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
+
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
-import co.edu.uniquindio.proyectofinal.model.Enum.EstadoDoctor;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Iterador.IteradorAleatorio;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
 
 /**
@@ -34,7 +32,7 @@ public class AdministradorCitas extends Persona {
     }
 
 
-    public void programarCita(LocalDateTime fechaHoraCita, Paciente paciente, Doctor doctor, String motivo, String salaCita) {
+    public void programarCita(LocalDateTime fechaHoraCita, Paciente paciente, String motivo, String salaCita) {
         
 
     Collection<Doctor> doctoresActivos = consultorio.buscarDoctoresActivos();
@@ -42,6 +40,10 @@ public class AdministradorCitas extends Persona {
     if (doctoresActivos.isEmpty()) {
         throw new IllegalStateException("No hay doctores activos disponibles para programar citas.");
     }
+
+    IteradorAleatorio<Doctor> iterador = new IteradorAleatorio<>(doctoresActivos);
+
+    Doctor doctor = iterador.next();
 
         if (verificarCruceCitas(fechaHoraCita, paciente, doctor)) {
             throw new IllegalArgumentException("No se puede programar la cita porque se cruza con otra cita.");
