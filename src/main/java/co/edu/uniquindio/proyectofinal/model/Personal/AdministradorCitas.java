@@ -9,6 +9,7 @@ import java.util.Random;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Iterador.Iterador;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
 
 /**
@@ -46,14 +47,18 @@ public class AdministradorCitas extends Persona {
      * @param salaCita       La sala donde se realizará la cita.
      */
     public void programarCita(LocalDateTime fechaHoraCita, Paciente paciente, String motivo, String salaCita) {
-        Collection<Doctor> doctoresActivosColeccion = consultorio.buscarDoctoresActivos();
+        Iterador<Doctor> iteradorDoctores = consultorio.crearIteradorDoctoresActivos();
 
-        if (doctoresActivosColeccion.isEmpty()) {
+        // Verificar si hay doctores activos disponibles
+        if (!iteradorDoctores.hasNext()) {
             throw new IllegalStateException("No hay doctores activos disponibles para programar citas.");
         }
 
-          // Convertir la colección de doctores activos a una lista
-    List<Doctor> doctoresActivos = new ArrayList<>(doctoresActivosColeccion);
+         // Seleccionar un doctor activo aleatoriamente
+        List<Doctor> doctoresActivos = new ArrayList<>();
+        while (iteradorDoctores.hasNext()) {
+            doctoresActivos.add(iteradorDoctores.next());
+        }
 
         // Seleccionar un doctor activo aleatoriamente
         Doctor doctor = doctoresActivos.get(random.nextInt(doctoresActivos.size()));

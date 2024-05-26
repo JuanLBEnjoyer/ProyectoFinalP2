@@ -1,6 +1,8 @@
 package co.edu.uniquindio.proyectofinal.model.Consultorio;
 import co.edu.uniquindio.proyectofinal.model.Enum.EstadoDoctor;
 import co.edu.uniquindio.proyectofinal.model.Exception.PersonaExistenteException;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Iterador.Iterador;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Iterador.IteradorDoctoresActivos;
 import co.edu.uniquindio.proyectofinal.model.Personal.AdministradorCitas;
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
@@ -163,9 +165,8 @@ public class Consultorio {
         lista.remove(persona);
     }
 
-    public Collection<Doctor> buscarDoctoresActivos() {
-        return doctores.stream()
-                .filter(doctor -> doctor.getEstado().equals(EstadoDoctor.ACTIVO))
-                .collect(Collectors.toList());
+    public Iterador<Doctor> crearIteradorDoctoresActivos() {
+        return new IteradorDoctoresActivos(doctores);
     }
+
 }
