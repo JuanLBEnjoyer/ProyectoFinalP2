@@ -53,7 +53,7 @@ public class AdministradorCitas extends Persona {
             throw new IllegalStateException("No hay doctores activos disponibles para programar citas.");
         }
 
-         // Seleccionar un doctor activo aleatoriamente
+        // Recoger todos los doctores activos
         List<Doctor> doctoresActivos = new ArrayList<>();
         while (iteradorDoctores.hasNext()) {
             doctoresActivos.add(iteradorDoctores.next());

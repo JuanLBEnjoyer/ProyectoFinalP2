@@ -8,6 +8,7 @@ import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 import co.edu.uniquindio.proyectofinal.model.Personal.Persona;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -29,12 +30,12 @@ public class Consultorio {
      * @param pacientes La colección de pacientes del consultorio.
      * @param doctores La colección de doctores del consultorio.
      */
-    public Consultorio(String nombre, String direccion, AdministradorCitas administradorCitas, Collection<Paciente> pacientes, Collection<Doctor> doctores){
+    public Consultorio(String nombre, String direccion, AdministradorCitas administradorCitas){
         this.nombre = nombre;
         this.direccion = direccion;
         this.fechaCreacion = LocalDate.now();
-        this.pacientes = pacientes;
-        this.doctores = doctores;
+        this.pacientes = new ArrayList<Paciente>();
+        this.doctores = new ArrayList<Doctor>();
         this.administradorCitas = administradorCitas;
     }
 
