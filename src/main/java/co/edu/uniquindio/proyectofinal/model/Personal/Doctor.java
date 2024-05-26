@@ -15,7 +15,7 @@ public class Doctor extends Persona {
 
     private String especialidad;
     private EstadoDoctor estado;
-    private Collection<CitaConcreta> citasPendientes;
+    private final Collection<CitaConcreta> citasPendientes;
 
     /**
      * Constructor de la clase Doctor.

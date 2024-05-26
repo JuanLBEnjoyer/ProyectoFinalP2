@@ -3,7 +3,6 @@ package co.edu.uniquindio.proyectofinal.model.Personal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -18,9 +17,9 @@ import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
  */
 public class AdministradorCitas extends Persona {
 
-    private GestorCitas gestorCitas;
-    private Consultorio consultorio;
-    private Random random;
+    private final GestorCitas gestorCitas;
+    private final Consultorio consultorio;
+    private final Random random;
 
     /**
      * Constructor de la clase AdministradorCitas.

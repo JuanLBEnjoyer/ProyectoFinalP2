@@ -9,7 +9,7 @@ import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 
 public class IteradorDoctoresActivos implements Iterador<Doctor> {
 
-    private List<Doctor> doctoresActivos;
+    private final List<Doctor> doctoresActivos;
     private int posicion;
 
     public IteradorDoctoresActivos(Collection<Doctor> doctores) {

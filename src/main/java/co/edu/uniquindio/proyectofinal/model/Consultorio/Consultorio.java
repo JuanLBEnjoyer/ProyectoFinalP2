@@ -1,5 +1,4 @@
 package co.edu.uniquindio.proyectofinal.model.Consultorio;
-import co.edu.uniquindio.proyectofinal.model.Enum.EstadoDoctor;
 import co.edu.uniquindio.proyectofinal.model.Exception.PersonaExistenteException;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Iterador.Iterador;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Iterador.IteradorDoctoresActivos;
@@ -12,7 +11,6 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 
 public class Consultorio {
@@ -27,12 +25,11 @@ public class Consultorio {
      * Constructor para crear un consultorio.
      * @param nombre El nombre del consultorio.
      * @param direccion La dirección del consultorio.
-     * @param fechaCreacion La fecha de creación del consultorio.
      * @param administradorCitas El administrador de citas del consultorio.
      * @param pacientes La colección de pacientes del consultorio.
      * @param doctores La colección de doctores del consultorio.
      */
-    public Consultorio(String nombre, String direccion, LocalDate fechaCreacion,AdministradorCitas administradorCitas, Collection<Paciente> pacientes, Collection<Doctor> doctores){
+    public Consultorio(String nombre, String direccion, AdministradorCitas administradorCitas, Collection<Paciente> pacientes, Collection<Doctor> doctores){
         this.nombre = nombre;
         this.direccion = direccion;
         this.fechaCreacion = LocalDate.now();

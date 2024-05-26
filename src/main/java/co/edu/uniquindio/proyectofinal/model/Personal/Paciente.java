@@ -23,7 +23,7 @@ public class Paciente extends Persona implements Observer {
     private Collection<Tratamiento> tratamientosActivos;
     private Collection<RecetaMedica> medicamentos;
     private String direccion;
-    private ContextoInforme contextoInforme;
+    private final ContextoInforme contextoInforme;
 
     /**
      * Constructor de la clase Paciente.
@@ -41,9 +41,9 @@ public class Paciente extends Persona implements Observer {
         super(nombre, id, fechaDeNacimiento);
 
         this.historialMedico = historialMedico;
-        this.citasProgramadas = new ArrayList<CitaConcreta>();
-        this.tratamientosActivos = new ArrayList<Tratamiento>();
-        this.medicamentos = new ArrayList<RecetaMedica>();
+        this.citasProgramadas = new ArrayList<>();
+        this.tratamientosActivos = new ArrayList<>();
+        this.medicamentos = new ArrayList<>();
         this.direccion = direccion;
         this.contextoInforme = new ContextoInforme();
 

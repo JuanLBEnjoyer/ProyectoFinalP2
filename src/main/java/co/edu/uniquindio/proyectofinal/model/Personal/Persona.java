@@ -12,7 +12,7 @@ public abstract class Persona {
     private String nombre;
     private String id;
     private LocalDate fechaNacimiento;
-    private int edad;
+    private final int edad;
 
     /**
      * Constructor de la clase Persona.
