@@ -4,8 +4,8 @@ package co.edu.uniquindio.proyectofinal;
  */
 public class Main {
     public static void main(String[] args) {
-        //esto es unicamente para guardar todos los cambios al mismo tiempo note 
-        //preocupes
+        //esto es unicamente para guardar todos
+        //los combios al tiempo no te preocupes
         System.out.println("guardar todos los cambios");
     }
 }
