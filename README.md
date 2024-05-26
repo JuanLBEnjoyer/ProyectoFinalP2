@@ -30,4 +30,4 @@ Implementa un sistema de notificaciones para recordatorios de citas, seguimiento
 
 # 7. Reportes e Informes
 
-Genera informes detallados sobre el estado de las citas médicas, tratamientos activos, pacientes atendidos, diagnósticos frecuentes, entre otros datos relevantes para la gestión y toma de decisiones en el consultorio.
+Genera informes detallados sobre el estado de las citas médicas, tratamientos activos, pacientes atendidos, entre otros datos relevantes para la gestión y toma de decisiones en el consultorio.
