@@ -59,7 +59,7 @@ public class ConsultorioController {
         }
 
         // Crear la instancia de Consultorio
-        this.consultorio = new Consultorio(nombre, direccion);
+        this.consultorio = Consultorio.obtenerInstancia(nombre, direccion);
         System.out.println(consultorio.toString());
         mostrarMensaje("Consultorio creado exitosamente.");
 

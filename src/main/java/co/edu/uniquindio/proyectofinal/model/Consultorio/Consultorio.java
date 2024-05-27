@@ -21,6 +21,7 @@ public class Consultorio {
     private AdministradorCitas administradorCitas;
     private Collection<Paciente> pacientes;
     private Collection<Doctor> doctores;
+    private static Consultorio instanciaUnica;
 
     /**
      * Constructor para crear un consultorio.
@@ -105,6 +106,14 @@ public class Consultorio {
     public String toString() {
         return "Consultorio [nombre=" + nombre + ", direccion=" + direccion + ", fechaCreacion=" + fechaCreacion
                 + ", pacientes=" + pacientes + ", doctores=" + doctores + "]";
+    }
+
+    // Método estático para obtener la instancia única del Consultorio
+    public static Consultorio obtenerInstancia(String nombre, String direccion) {
+        if (instanciaUnica == null) {
+            instanciaUnica = new Consultorio(nombre, direccion);
+        }
+        return instanciaUnica;
     }
 
     /**
