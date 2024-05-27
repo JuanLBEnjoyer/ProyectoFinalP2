@@ -153,4 +153,19 @@ public class CitaConcreta {
             pacienteAsociado.eliminarCitaProgramada(this);
         }
     }
+
+    /**
+     * Representa la cita en forma de cadena.
+     * @return Una cadena que representa la cita.
+     */
+    @Override
+    public String toString() {
+        return "CitaConcreta{" +
+                "fechaHoraCita=" + fechaHoraCita +
+                ", paciente=" + paciente.getNombre() + // Aquí puedes cambiar por otro atributo relevante del paciente
+                ", doctor=" + doctor.getNombre() + // Aquí puedes cambiar por otro atributo relevante del doctor
+                ", motivo='" + motivo + '\'' +
+                ", salaCita='" + salaCita + '\'' +
+                '}';
+    }
 }

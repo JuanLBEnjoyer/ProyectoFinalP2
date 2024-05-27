@@ -45,6 +45,13 @@ public class AdministradorCitas extends Persona {
      * @param motivo         El motivo de la cita.
      * @param salaCita       La sala donde se realizará la cita.
      */
+        /**
+     * Programa una nueva cita para un paciente.
+     * @param fechaHoraCita La fecha y hora de la cita.
+     * @param paciente El paciente que tendrá la cita.
+     * @param motivo El motivo de la cita.
+     * @param salaCita La sala donde se realizará la cita.
+     */
     public void programarCita(LocalDateTime fechaHoraCita, Paciente paciente, String motivo, String salaCita) {
         Iterador<Doctor> iteradorDoctores = consultorio.crearIteradorDoctoresActivos();
 
@@ -63,7 +70,6 @@ public class AdministradorCitas extends Persona {
         Doctor doctor = doctoresActivos.get(random.nextInt(doctoresActivos.size()));
 
         // Verificar si la cita se cruza con otra cita del paciente o del doctor
-
         if (verificarCruceCitas(fechaHoraCita, paciente, doctor)) {
             throw new IllegalArgumentException("No se puede programar la cita porque se cruza con otra cita.");
         }

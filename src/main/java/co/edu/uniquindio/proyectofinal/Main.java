@@ -6,31 +6,31 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.MedicamentoFactory;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.MedicamentoIntravenoso;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.MedicamentoJarabe;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.MedicamentoPastillas;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.RecetaMedica;
-import co.edu.uniquindio.proyectofinal.model.Personal.AdministradorCitas;
-import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
-import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
+import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.*;
+import co.edu.uniquindio.proyectofinal.model.Personal.*;
 
 public class Main {
 
     public static void main(String[] args) {
         // Crear consultorio
-        Consultorio consultorio = new Consultorio("Clinica XYZ", "Calle 123");
+        Consultorio consultorio = Consultorio.obtenerInstancia("Clinica XYZ", "Calle 123");
+
+        Collection<Persona> doctores = new ArrayList<>();
 
         // Crear pacientes
         Paciente paciente1 = new Paciente("Juan Perez", "12345", LocalDate.of(1980, 5, 15), null, "Calle 456");
         Paciente paciente2 = new Paciente("Maria Lopez", "67890", LocalDate.of(1990, 10, 20), null, "Carrera 789");
 
         // Crear doctores
-        Doctor doctor1 = new Doctor("Pediatría", "Dr. Martínez", "DOC123", LocalDate.of(1975, 8, 25));
-        Doctor doctor2 = new Doctor("Cardiología", "Dra. Gómez", "DOC456", LocalDate.of(1985, 6, 30));
+        Persona doctor1 = new Doctor("Pediatría", "Dr. Martínez", "DOC123", LocalDate.of(1975, 8, 25));
+        Persona doctor2 = new Doctor("Cardiología", "Dra. Gómez", "DOC456", LocalDate.of(1985, 6, 30));
+
+        // Agregar doctores al consultorio
+        consultorio.agregarPersona(doctor1, doctores);
+        consultorio.agregarPersona(doctor2, doctores);
 
         // Crear administrador de citas
-        AdministradorCitas administradorCitas = new AdministradorCitas(consultorio, "Administrador", "ADM001",
+        AdministradorCitas administradorCitas = consultorio.crearAdministrador("Administrador", "ADM001",
                 LocalDate.of(1995, 4, 10));
 
         // Programar citas para los pacientes
@@ -68,7 +68,8 @@ public class Main {
 
         // Utilizar las variables doctor1 y doctor2
         System.out.println("\nDoctores:");
-        System.out.println("Doctor 1: " + doctor1.getNombre() + " - Especialidad: " + doctor1.getEspecialidad());
-        System.out.println("Doctor 2: " + doctor2.getNombre() + " - Especialidad: " + doctor2.getEspecialidad());
+        for (Doctor doctor : consultorio.getDoctores()) {
+            System.out.println("Doctor: " + doctor.getNombre() + " - Especialidad: " + doctor.getEspecialidad());
+        }
     }
 }
