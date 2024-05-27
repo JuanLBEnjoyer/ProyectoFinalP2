@@ -30,13 +30,12 @@ public class Consultorio {
      * @param pacientes La colección de pacientes del consultorio.
      * @param doctores La colección de doctores del consultorio.
      */
-    public Consultorio(String nombre, String direccion, AdministradorCitas administradorCitas){
+    public Consultorio(String nombre, String direccion){
         this.nombre = nombre;
         this.direccion = direccion;
         this.fechaCreacion = LocalDate.now();
         this.pacientes = new ArrayList<Paciente>();
         this.doctores = new ArrayList<Doctor>();
-        this.administradorCitas = administradorCitas;
     }
 
     // Getters y Setters
@@ -169,10 +168,8 @@ public class Consultorio {
 
     public AdministradorCitas crearAdministrador(String nombre, String id, LocalDate fechaDeNacimiento){
 
-     AdministradorCitas admin = new AdministradorCitas(this, nombre, id, fechaDeNacimiento);
-
-     return admin;
-
+        this.administradorCitas = new AdministradorCitas(this, nombre, id, fechaDeNacimiento);
+        return this.administradorCitas;
     }
 
 }
