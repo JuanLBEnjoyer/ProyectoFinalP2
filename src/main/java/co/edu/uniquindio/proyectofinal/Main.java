@@ -4,9 +4,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
 import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.*;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Builder.*;
 import co.edu.uniquindio.proyectofinal.model.Personal.*;
 
@@ -41,9 +43,21 @@ public class Main {
 
         // Programar una cita de tipo Seguimiento para el paciente 2
         LocalDateTime fechaHoraCitaSeguimiento = LocalDateTime.of(2024, 6, 15, 10, 30);
-        
+
         Cita citaSeguimiento = creadorDeCita.constructor("Seguimiento", fechaHoraCitaSeguimiento, "Sala 2",
                 (Doctor) doctor2, paciente2);
+
+        // Crear una instancia de GestorCitas
+        GestorCitas gestorCitas = new GestorCitas();
+
+        // Agregar pacientes como observadores
+        gestorCitas.addObserver(paciente1);
+        gestorCitas.addObserver(paciente2);
+
+        // Verificar citas próximas y notificar a los observadores
+        gestorCitas.verificarCitasProximas(consultorio.getPacientes().stream()
+                .flatMap(p -> p.getCitasProgramadas().stream())
+                .collect(Collectors.toList()));
 
         // Mostrar información de las citas programadas
         System.out.println("Información de citas programadas:");
