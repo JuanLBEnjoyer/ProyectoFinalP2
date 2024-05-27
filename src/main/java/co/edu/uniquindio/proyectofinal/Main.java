@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
 import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.MedicamentoFactory;
 import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.MedicamentoIntravenoso;
@@ -48,25 +47,25 @@ public class Main {
 
         // Crear una receta médica
         Collection<MedicamentoFactory> medicamentos = new ArrayList<>();
-        
+
         // Crear diferentes tipos de medicamentos usando el Factory Method
         medicamentos.add(new MedicamentoIntravenoso("Ibuprofeno", "400mg"));
         medicamentos.add(new MedicamentoJarabe("Bronquisol", "15ml"));
         medicamentos.add(new MedicamentoPastillas("Paracetamol", "500mg"));
-        
+
         // Crear la receta médica con los medicamentos y las instrucciones
         RecetaMedica receta = new RecetaMedica(medicamentos, "Tomar con comida");
-        
+
         // Mostrar los detalles de la receta médica
         System.out.println("\nReceta Médica:");
         System.out.println("Instrucciones: " + receta.getInstrucciones());
         System.out.println("Medicamentos:");
         for (MedicamentoFactory medicamento : receta.getMedicamentos()) {
             System.out.println("- Nombre: " + medicamento.getNombre() +
-                               ", Dosis: " + medicamento.getDosis() +
-                               ", Forma de Administración: " + medicamento.getFormaAdministracion());
+                    ", Dosis: " + medicamento.getDosis() +
+                    ", Forma de Administración: " + medicamento.getFormaAdministracion());
         }
-        
+
         // Utilizar las variables doctor1 y doctor2
         System.out.println("\nDoctores:");
         System.out.println("Doctor 1: " + doctor1.getNombre() + " - Especialidad: " + doctor1.getEspecialidad());
