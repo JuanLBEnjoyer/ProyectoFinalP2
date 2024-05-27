@@ -3,7 +3,7 @@ package co.edu.uniquindio.proyectofinal.model.Consultorio;
 import java.time.LocalDate;
 
 import co.edu.uniquindio.proyectofinal.model.Enum.EstadoTratamiento;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod.RecetaMedica;
+import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.RecetaMedica;
 
 /**
  * Representa un tratamiento médico que incluye información como fecha de inicio, nombre, descripción, fecha de fin,

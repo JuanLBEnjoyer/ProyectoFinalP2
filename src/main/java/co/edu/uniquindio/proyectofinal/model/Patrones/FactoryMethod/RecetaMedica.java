@@ -1,4 +1,4 @@
-package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod;
+package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod;
 
 import java.util.Collection;
 
@@ -8,7 +8,7 @@ import java.util.Collection;
  */
 public class RecetaMedica {
 
-    private Collection<Medicamento> medicamentos;
+    private Collection<MedicamentoFactory> medicamentos;
     private String instrucciones;
 
     /**
@@ -19,18 +19,18 @@ public class RecetaMedica {
      * @param instrucciones las instrucciones para la administración de los
      *                      medicamentos
      */
-    public RecetaMedica(Collection<Medicamento> medicamentos, String instrucciones) {
+    public RecetaMedica(Collection<MedicamentoFactory> medicamentos, String instrucciones) {
         this.medicamentos = medicamentos;
         this.instrucciones = instrucciones;
     }
 
     // Getters y Setters
 
-    public Collection<Medicamento> getMedicamentos() {
+    public Collection<MedicamentoFactory> getMedicamentos() {
         return medicamentos;
     }
 
-    public void setMedicamentos(Collection<Medicamento> medicamentos) {
+    public void setMedicamentos(Collection<MedicamentoFactory> medicamentos) {
         this.medicamentos = medicamentos;
     }
 

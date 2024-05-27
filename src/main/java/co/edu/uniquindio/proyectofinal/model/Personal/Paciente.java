@@ -8,7 +8,7 @@ import java.util.Collection;
 import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Tratamiento;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod.RecetaMedica;
+import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.RecetaMedica;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.Observer;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Strategy.ContextoInforme;
 
@@ -104,7 +104,7 @@ public class Paciente extends Persona implements Observer {
         this.direccion = direccion;
     }
 
-   /**
+    /**
      * Agrega una cita programada al paciente.
      * 
      * @param cita La cita que se va a agregar.
@@ -141,9 +141,8 @@ public class Paciente extends Persona implements Observer {
         System.out.println("Notificación para " + getNombre() + ": " + mensaje);
     }
 
-    public void solicitarInforme(){
+    public void solicitarInforme() {
         contextoInforme.generarInforme(historialMedico);
     }
 
 }
-

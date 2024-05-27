@@ -7,12 +7,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.controller.PacienteController">
    <children>
-      <Button fx:id="btnRegistro" layoutX="258.0" layoutY="140.0" mnemonicParsing="false" onAction="#guardarPaciente" text="Registrar Paciente" />
+      <Button fx:id="btnRegistro" layoutX="259.0" layoutY="140.0" mnemonicParsing="false" onAction="#guardarPaciente" text="Registrar Paciente" />
       <TextField fx:id="txtNombre" layoutX="23.0" layoutY="72.0" />
       <TextField fx:id="txtCedula" layoutX="23.0" layoutY="140.0" />
       <TextField fx:id="txtEdad" layoutX="23.0" layoutY="200.0" />
-      <Label layoutX="23.0" layoutY="43.0" prefHeight="17.0" prefWidth="96.0" text="Nombre" textAlignment="CENTER" />
-      <Label layoutX="23.0" layoutY="115.0" prefHeight="17.0" prefWidth="96.0" text="Cedula" textAlignment="CENTER" />
+      <Label layoutX="24.0" layoutY="43.0" prefHeight="20.0" prefWidth="173.0" text="Nombre Completo" textAlignment="CENTER" />
+      <Label layoutX="23.0" layoutY="115.0" prefHeight="20.0" prefWidth="173.0" text="Documento de Identidad" textAlignment="CENTER" />
       <Label layoutX="23.0" layoutY="175.0" prefHeight="17.0" prefWidth="96.0" text="Edad" />
+      <TextField fx:id="txtDireccion" layoutX="23.0" layoutY="256.0" />
+      <Label layoutX="23.0" layoutY="230.0" text="Direccion" />
    </children>
 </AnchorPane>

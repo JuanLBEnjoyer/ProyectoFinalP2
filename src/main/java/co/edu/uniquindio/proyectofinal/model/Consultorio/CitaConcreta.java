@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import co.edu.uniquindio.proyectofinal.model.Enum.EstadoCita;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod.RecetaMedica;
+import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.RecetaMedica;
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 
