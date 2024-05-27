@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.controller.AdminController">
+   <children>
+      <Button fx:id="bttnProgramar" layoutX="252.0" layoutY="129.0" mnemonicParsing="false" text="Programar Cita" />
+      <Label layoutX="273.0" layoutY="77.0" text="Funciones" textFill="RED" />
+      <Button fx:id="bttnVerp" layoutX="269.0" layoutY="188.0" mnemonicParsing="false" text="Ver Perfil" />
+      <Button fx:id="bttnVerCitas" layoutX="233.0" layoutY="245.0" mnemonicParsing="false" text="Ver Citas Programadas" />
+      <Label layoutX="194.0" layoutY="30.0" text="Perfil de Administrador Citas">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

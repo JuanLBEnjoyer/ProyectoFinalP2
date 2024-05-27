@@ -2,8 +2,10 @@ package co.edu.uniquindio.proyectofinal.controller;
 
 
 
+import java.io.IOException;
 import java.time.LocalDate;
 
+import co.edu.uniquindio.proyectofinal.App;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -73,6 +75,13 @@ public class ConsultorioController {
         }
 
         consultorio.crearAdministrador(nombreAdmin, idAdmin, fechaNacimientoAdmin);
+
+         try {
+            App.setRoot("admin");
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
         
     }
 }
