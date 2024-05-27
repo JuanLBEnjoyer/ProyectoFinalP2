@@ -7,6 +7,7 @@ import java.util.Collection;
 
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
 import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.*;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Builder.*;
 import co.edu.uniquindio.proyectofinal.model.Personal.*;
 
 public class Main {
@@ -29,21 +30,25 @@ public class Main {
         consultorio.agregarPersona(doctor1, doctores);
         consultorio.agregarPersona(doctor2, doctores);
 
-        // Crear administrador de citas
-        AdministradorCitas administradorCitas = consultorio.crearAdministrador("Administrador", "ADM001",
-                LocalDate.of(1995, 4, 10));
+        // Crear el creador de citas con el builder adecuado
+        CreadorDeCita creadorDeCita = new CreadorDeCita(new ConsultaBuilder());
 
-        // Programar citas para los pacientes
-        LocalDateTime fechaHoraCitaPaciente1 = LocalDateTime.of(2024, 6, 10, 9, 0);
-        administradorCitas.programarCita(fechaHoraCitaPaciente1, paciente1, "Control rutinario", "Sala 1");
+        // Programar una cita de tipo Consulta para el paciente 1
+        LocalDateTime fechaHoraCitaConsulta = LocalDateTime.of(2024, 6, 10, 9, 0);
 
-        LocalDateTime fechaHoraCitaPaciente2 = LocalDateTime.of(2024, 6, 15, 10, 30);
-        administradorCitas.programarCita(fechaHoraCitaPaciente2, paciente2, "Examen de rutina", "Sala 2");
+        Cita citaConsulta = creadorDeCita.constructor("Consulta", fechaHoraCitaConsulta, "Sala 1", (Doctor) doctor1,
+                paciente1);
 
-        // Mostrar información de citas programadas
+        // Programar una cita de tipo Seguimiento para el paciente 2
+        LocalDateTime fechaHoraCitaSeguimiento = LocalDateTime.of(2024, 6, 15, 10, 30);
+        
+        Cita citaSeguimiento = creadorDeCita.constructor("Seguimiento", fechaHoraCitaSeguimiento, "Sala 2",
+                (Doctor) doctor2, paciente2);
+
+        // Mostrar información de las citas programadas
         System.out.println("Información de citas programadas:");
-        System.out.println("Paciente 1 - Cita 1: " + paciente1.getCitasProgramadas().iterator().next());
-        System.out.println("Paciente 2 - Cita 1: " + paciente2.getCitasProgramadas().iterator().next());
+        System.out.println("Cita de Consulta para " + paciente1.getNombre() + ": " + citaConsulta);
+        System.out.println("Cita de Seguimiento para " + paciente2.getNombre() + ": " + citaSeguimiento);
 
         // Crear una receta médica
         Collection<MedicamentoFactory> medicamentos = new ArrayList<>();
