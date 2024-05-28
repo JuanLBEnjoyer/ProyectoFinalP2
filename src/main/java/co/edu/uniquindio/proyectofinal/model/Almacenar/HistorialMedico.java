@@ -39,21 +39,9 @@ public class HistorialMedico {
         citas.add(cita);
     }
 
-     public Collection<CitaConcreta> getCitasProgramadas() {
-        return citas.stream()
-            .filter(cita -> cita.getEstadoCita() == EstadoCita.PROGRAMADA)
-            .collect(Collectors.toList());
-    }
-
     public Collection<CitaConcreta> getCitasFinalizadas() {
         return citas.stream()
             .filter(cita -> cita.getEstadoCita() == EstadoCita.FINALIZADA)
-            .collect(Collectors.toList());
-    }
-
-    public Collection<CitaConcreta> getCitasCanceladas() {
-        return citas.stream()
-            .filter(cita -> cita.getEstadoCita() == EstadoCita.CANCELADA)
             .collect(Collectors.toList());
     }
 

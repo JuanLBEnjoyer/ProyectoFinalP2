@@ -9,7 +9,13 @@
 [Paciente||+Paciente(nombre:cadena,id:cadena,fechaDeNacimiento:LocalDate,historialMedico:HistorialMedico);+agregarCitaProgramada():void;+eliminarCitaProgrmada():void;+agregarTratamientoActivo():void;+update():void;solicitarInforme():void]
 [Doctor|-especialidad:cadena;-estado:enum|+Doctor(nombre:cadena,id:cadena,fechaDeNacimiento:LocalDate,especialidad:cadena);+cambiarEstado():void;+agregarCitaPendiente():void;+eliminarCitaPendiente():void;]
 [AdministradorCitas|-random:Random|+AdministradorCitas(nombre:cadena,id:cadena,fechaDeNacimiento:LocalDate,consultorio:Consultorio);+programarCita():void;+verificarCruceCitas():boolean;+cancelarCita():void]
-[<<Clase Abstracta>>;Persona]
+[<<Clase Abstracta>>;Persona|-nombre:cadena;-id:cadena;-fechaNacimiento:LocalDate;-edad:entero|+Persona(nombre:cadena,id:cadena,fechaDeNacimiento:LocalDate);+calcularEdad():entero]
+
+[CitaConcreta|-fechaHoraCita:LocalDateTime;-motivo:cadena;-estadoCita:enum;-salaCita:cadena|+CitaConcreta(fechaHoraCita:LocalDateTime,motivo:cadena,estado:enum,salaCita:cadena,doctor:Doctor,paciente:Paciente);+definirTratamiento():void;+actualizarEstado():void;+finalizarCita():void;+cancelarCita():void;]
+
+[Tratamiento|-fechaInicio:LocalDate;-nombre:cadena;-descripcion:cadena;-fechaFin:LocalDate;-estadoTratamiento:enum|+Tratamiento(fechaInicio:LocalDate,nombre:cadena,descripcion:cadena,fechaFin:cadena,recetaMedica:RecetaMedica);+actualizarEstado():void]
+
+[HistorialMedico||+HistorialMedico(citas:Coleccion<CitaConcreta>,tratamientos:Coleccion<Tratamiento>);+agregarCitaFinalizada():void;+getCitasFinalizadas():Colleccion<CitaConcreta>;+getTratamientosActivos():Coleccion<Tratamiento>;+getTratamientosProgramados():Coleccion<Tratamiento>]
 
 
 //Interrelaciones
