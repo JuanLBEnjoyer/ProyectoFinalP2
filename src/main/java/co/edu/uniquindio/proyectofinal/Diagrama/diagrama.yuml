@@ -1,0 +1,18 @@
+// {type:class}
+// {direction:topDown}
+// {generate:true}
+
+
+//Clases
+[Consultorio|-nombre:cadena;-direccion:cadena;-fechaDeCreacion:LocalDate;-instanciaUnica:Consultorio;|+Consultorio(nombre:cadena,direccion:cadena)+obtenerInstancia():Consultorio;+buscarPersona():Persona;+verificarPersona:Optional;+validarPersonaExiste():void;+agregarPersona():void;+eliminarPersona():void;crearIteradorDoctoresActivos():Iterador<Doctor>;crearAdministrador():Administrador]
+
+[Paciente]
+[Doctor]
+[AdministradorCitas]
+
+
+//Interrelaciones
+
+[Consultorio]<>->[Paciente]
+
+
