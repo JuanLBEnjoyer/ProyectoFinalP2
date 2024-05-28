@@ -11,6 +11,7 @@ import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Tratamiento;
 import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.*;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Builder.*;
+import co.edu.uniquindio.proyectofinal.model.Patrones.Strategy.*;
 import co.edu.uniquindio.proyectofinal.model.Personal.*;
 
 public class Main {
@@ -59,6 +60,15 @@ public class Main {
         System.out.println("Información de citas programadas:");
         System.out.println("Cita de Consulta para " + paciente1.getNombre() + ": " + citaConsulta);
         System.out.println("Cita de Seguimiento para " + paciente2.getNombre() + ": " + citaSeguimiento);
+
+        // Generar informe básico para paciente 1
+        ContextoInforme contextoInforme = new ContextoInforme();
+        contextoInforme.setEstrategia(new InformeBasico());
+        contextoInforme.generarInforme(paciente1.getHistorialMedico());
+
+        // Generar informe avanzado para paciente 2
+        contextoInforme.setEstrategia(new InformeAvanzado());
+        contextoInforme.generarInforme(paciente2.getHistorialMedico());
 
         // Crear una receta médica
         Collection<MedicamentoFactory> medicamentos = new ArrayList<>();

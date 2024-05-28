@@ -3,7 +3,8 @@ package co.edu.uniquindio.proyectofinal.model.Patrones.Strategy;
 import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
 
 /**
- * Interfaz InformeStrategy que define el contrato para las estrategias de generación de informes del historial médico.
+ * Interfaz InformeStrategy que define el contrato para las estrategias de
+ * generación de informes del historial médico.
  */
 public interface InformeStrategy {
 
@@ -14,4 +15,3 @@ public interface InformeStrategy {
      */
     void generarInforme(HistorialMedico historial);
 }
-

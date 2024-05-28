@@ -3,7 +3,8 @@ package co.edu.uniquindio.proyectofinal.model.Patrones.Strategy;
 import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
 
 /**
- * Clase InformeBasico que implementa la estrategia para generar un informe básico del historial médico.
+ * Clase InformeBasico que implementa la estrategia para generar un informe
+ * básico del historial médico.
  */
 public class InformeBasico implements InformeStrategy {
 

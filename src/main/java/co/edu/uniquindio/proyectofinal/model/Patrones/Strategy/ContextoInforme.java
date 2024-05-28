@@ -3,7 +3,8 @@ package co.edu.uniquindio.proyectofinal.model.Patrones.Strategy;
 import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
 
 /**
- * Clase ContextoInforme que maneja la estrategia para generar informes de historial médico.
+ * Clase ContextoInforme que maneja la estrategia para generar informes de
+ * historial médico.
  */
 public class ContextoInforme {
 
@@ -26,5 +27,5 @@ public class ContextoInforme {
     public void generarInforme(HistorialMedico historial) {
         estrategia.generarInforme(historial);
     }
-    
+
 }
