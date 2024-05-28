@@ -6,13 +6,17 @@
 //Clases
 [Consultorio|-nombre:cadena;-direccion:cadena;-fechaDeCreacion:LocalDate;-instanciaUnica:Consultorio;|+Consultorio(nombre:cadena,direccion:cadena)+obtenerInstancia():Consultorio;+buscarPersona():Persona;+verificarPersona:Optional;+validarPersonaExiste():void;+agregarPersona():void;+eliminarPersona():void;crearIteradorDoctoresActivos():Iterador<Doctor>;crearAdministrador():Administrador]
 
-[Paciente]
-[Doctor]
-[AdministradorCitas]
+[Paciente||+Paciente(nombre:cadena,id:cadena,fechaDeNacimiento:LocalDate,historialMedico:HistorialMedico);+agregarCitaProgramada():void;+eliminarCitaProgrmada():void;+agregarTratamientoActivo():void;+update():void;solicitarInforme():void]
+[Doctor|-especialidad:cadena;-estado:enum|+Doctor(nombre:cadena,id:cadena,fechaDeNacimiento:LocalDate,especialidad:cadena);+cambiarEstado():void;+agregarCitaPendiente():void;+eliminarCitaPendiente():void;]
+[AdministradorCitas|-random:Random|+AdministradorCitas(nombre:cadena,id:cadena,fechaDeNacimiento:LocalDate,consultorio:Consultorio);+programarCita():void;+verificarCruceCitas():boolean;+cancelarCita():void]
+[<<Clase Abstracta>>;Persona|-nombre:cadena;-id:cadena;-fechaNacimiento:LocalDate;-edad:entero|+Persona(nombre:cadena,id:cadena,fechaDeNacimiento:LocalDate);+calcularEdad():entero]
+
+[CitaConcreta|-fechaHoraCita:LocalDateTime;-motivo:cadena;-estadoCita:enum;-salaCita:cadena|+CitaConcreta(fechaHoraCita:LocalDateTime,motivo:cadena,estado:enum,salaCita:cadena,doctor:Doctor,paciente:Paciente);+definirTratamiento():void;+actualizarEstado():void;+finalizarCita():void;+cancelarCita():void;]
+
+
 
 
 //Interrelaciones
 
-[Consultorio]<>->[Paciente]
 
 

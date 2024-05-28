@@ -44,10 +44,9 @@ public class PacienteController {
 
         String nombre = this.txtNombre.getText();
         String cedula = this.txtCedula.getText();
-        String direccion = this.txtDireccion.getText();
     
 
-        Paciente paciente = new Paciente(nombre, cedula, LocalDate.of(2000,2,24), null, direccion);
+        Paciente paciente = new Paciente(nombre, cedula, LocalDate.of(2000,2,24), null);
 
         System.out.println(paciente.toString());
 

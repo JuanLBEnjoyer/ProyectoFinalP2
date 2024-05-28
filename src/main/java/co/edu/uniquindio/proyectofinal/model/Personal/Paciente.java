@@ -22,7 +22,6 @@ public class Paciente extends Persona implements Observer {
     private Collection<CitaConcreta> citasProgramadas;
     private Collection<Tratamiento> tratamientosActivos;
     private Collection<RecetaMedica> medicamentos;
-    private String direccion;
     private final ContextoInforme contextoInforme;
 
     /**
@@ -32,26 +31,22 @@ public class Paciente extends Persona implements Observer {
      * @param id                La identificación del paciente.
      * @param fechaDeNacimiento La fecha de nacimiento del paciente.
      * @param historialMedico   El historial médico del paciente.
-     * @param direccion         La dirección del paciente.
      * @throws IllegalArgumentException si alguno de los parámetros es inválido.
      */
 
-    public Paciente(String nombre, String id, LocalDate fechaDeNacimiento, HistorialMedico historialMedico,
-            String direccion) {
+    public Paciente(String nombre, String id, LocalDate fechaDeNacimiento, HistorialMedico historialMedico) {
         super(nombre, id, fechaDeNacimiento);
 
         this.historialMedico = historialMedico;
         this.citasProgramadas = new ArrayList<>();
         this.tratamientosActivos = new ArrayList<>();
         this.medicamentos = new ArrayList<>();
-        this.direccion = direccion;
         this.contextoInforme = new ContextoInforme();
 
         assert !nombre.isBlank() && !nombre.isEmpty();
         assert !id.isBlank() && !id.isEmpty();
         assert fechaDeNacimiento != null && fechaDeNacimiento.isBefore(LocalDate.now());
         assert historialMedico != null;
-        assert !direccion.isBlank() && !direccion.isEmpty();
     }
 
     // Getters y Setters
@@ -94,14 +89,6 @@ public class Paciente extends Persona implements Observer {
 
     public void setMedicamentos(Collection<RecetaMedica> medicamentos) {
         this.medicamentos = medicamentos;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
     }
 
     /**
