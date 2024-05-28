@@ -1,9 +1,9 @@
-package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod;
+package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod;
 
 /**
  * Clase base abstracta para representar un medicamento en el sistema.
  */
-public abstract class Medicamento {
+public abstract class MedicamentoFactory {
     private String nombre;
     private String dosis;
 
@@ -13,7 +13,7 @@ public abstract class Medicamento {
      * @param nombre El nombre del medicamento.
      * @param dosis  La dosis del medicamento.
      */
-    public Medicamento(String nombre, String dosis) {
+    public MedicamentoFactory(String nombre, String dosis) {
         this.nombre = nombre;
         this.dosis = dosis;
     }

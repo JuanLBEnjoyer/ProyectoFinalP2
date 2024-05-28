@@ -1,7 +1,7 @@
-package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod;
+package co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod;
 
 // Clase MedicamentoPastillas que extiende de Medicamento
-class MedicamentoPastillas extends Medicamento {
+public class MedicamentoPastillas extends MedicamentoFactory {
     // Constructor de la clase MedicamentoPastillas
     public MedicamentoPastillas(String nombre, String dosis) {
         super(nombre, dosis);

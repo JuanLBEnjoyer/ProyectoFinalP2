@@ -14,7 +14,7 @@ import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 
 // Clase que construye una cita médica y también actúa como sujeto observable.
-class ConsultaBuilder implements CitaBuilder, Sujeto {
+public class ConsultaBuilder implements CitaBuilder, Sujeto {
 
     private String tipoCita;
     private LocalDateTime fechaHoraCita;

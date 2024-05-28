@@ -7,7 +7,7 @@ import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 
 // Clase abstracta que representa una cita médica.
-abstract class Cita {
+public abstract class Cita {
 
     private String tipoCita;
 

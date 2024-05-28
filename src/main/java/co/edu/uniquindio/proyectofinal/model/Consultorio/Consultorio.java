@@ -152,14 +152,18 @@ public class Consultorio {
         }
     }
 
+  
     /**
-     * Agrega una persona a una lista después de validar que no exista.
+     * Agrega una persona al consultorio después de validar que no exista.
      * @param persona La persona a agregar.
      * @param lista La lista de personas donde se agregará.
      */
     public void agregarPersona(Persona persona, Collection<Persona> lista){
         validarPersonaExiste(persona, lista);
         lista.add(persona);
+        if (persona instanceof Doctor) { // Verifica si la persona es un doctor
+            doctores.add((Doctor) persona); // Agrega el doctor a la lista de doctores
+        }
     }
 
         /**

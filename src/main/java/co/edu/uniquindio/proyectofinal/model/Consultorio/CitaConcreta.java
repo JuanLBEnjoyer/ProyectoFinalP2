@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import co.edu.uniquindio.proyectofinal.model.Enum.EstadoCita;
-import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMetod.RecetaMedica;
+import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.RecetaMedica;
 import co.edu.uniquindio.proyectofinal.model.Personal.Doctor;
 import co.edu.uniquindio.proyectofinal.model.Personal.Paciente;
 
@@ -152,5 +152,20 @@ public class CitaConcreta {
         if (pacienteAsociado != null) {
             pacienteAsociado.eliminarCitaProgramada(this);
         }
+    }
+
+    /**
+     * Representa la cita en forma de cadena.
+     * @return Una cadena que representa la cita.
+     */
+    @Override
+    public String toString() {
+        return "CitaConcreta{" +
+                "fechaHoraCita=" + fechaHoraCita +
+                ", paciente=" + paciente.getNombre() + // Aquí puedes cambiar por otro atributo relevante del paciente
+                ", doctor=" + doctor.getNombre() + // Aquí puedes cambiar por otro atributo relevante del doctor
+                ", motivo='" + motivo + '\'' +
+                ", salaCita='" + salaCita + '\'' +
+                '}';
     }
 }
