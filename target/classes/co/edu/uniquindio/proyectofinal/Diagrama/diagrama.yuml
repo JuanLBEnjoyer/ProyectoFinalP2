@@ -15,10 +15,33 @@
 
 [Tratamiento|-fechaInicio:LocalDate;-nombre:cadena;-descripcion:cadena;-fechaFin:LocalDate;-estadoTratamiento:enum|+Tratamiento(fechaInicio:LocalDate,nombre:cadena,descripcion:cadena,fechaFin:cadena,recetaMedica:RecetaMedica);+actualizarEstado():void]
 
-[HistorialMedico||+HistorialMedico(citas:Coleccion<CitaConcreta>,tratamientos:Coleccion<Tratamiento>);+agregarCitaFinalizada():void;+getCitasFinalizadas():Colleccion<CitaConcreta>;+getTratamientosActivos():Coleccion<Tratamiento>;+getTratamientosProgramados():Coleccion<Tratamiento>]
+[HistorialMedico||+HistorialMedico(citas:Coleccion<CitaConcreta>,tratamientos:Coleccion<Tratamiento>);+agregarCitaFinalizada():void;+getCitasFinalizadas():Colleccion<CitaConcreta>;+getTratamientosActivos():Coleccion<Tratamiento>;+getTratamientosProgramados():Coleccion<Tratamiento>;getTratamientosFinalizados():Coleccion<Tratamiento>]
 
+[<<Enum>>;EstadoCita|PROGRAMADA;CANCELADA;EN_CURSO;FINALIZADA]
+[<<Enum>>;EstadoDoctor|ACTIVO;INACTIVO]
+[<<Enum>>;EstadoTratamiento|ACTIVO;PROGRMADO;FINALIZADO]
 
 //Interrelaciones
+
+[CitaConcreta]->[<<Enum>>;EstadoCita]
+
+[Tratamiento]->[<<Enum>>;EstadoTratamiento]
+
+[Consultorio]+doctores-[Doctor]
+[Consultorio]+pacientes-[Paciente]
+[Consultorio]++-[AdministradorCitas]
+
+[Doctor]-^[<<Clase Abstracta>>;Persona]
+[Doctor]->[<<Enum>>;EstadoDoctor]
+[Doctor]+citasPendientes-[CitaConcreta]
+[Paciente]-^[<<Clase Abstracta>>;Persona]
+[Paciente]+citasProgramadas-[CitaConcreta]
+[Paciente]+tratamientosActivos-[Tratamiento]
+[Paciente]+historialMedico-[HistorialMedico]
+
+
+[AdministradorCitas]-^[<<Clase Abstracta>>;Persona]
+
 
 
 
