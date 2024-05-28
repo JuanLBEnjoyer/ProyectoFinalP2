@@ -4,11 +4,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
+import co.edu.uniquindio.proyectofinal.model.Almacenar.HistorialMedico;
+import co.edu.uniquindio.proyectofinal.model.Consultorio.CitaConcreta;
 import co.edu.uniquindio.proyectofinal.model.Consultorio.Consultorio;
+import co.edu.uniquindio.proyectofinal.model.Consultorio.Tratamiento;
 import co.edu.uniquindio.proyectofinal.model.Patrones.FactoryMethod.*;
-import co.edu.uniquindio.proyectofinal.model.Patrones.Observer.GestorCitas;
 import co.edu.uniquindio.proyectofinal.model.Patrones.Builder.*;
 import co.edu.uniquindio.proyectofinal.model.Personal.*;
 
@@ -18,11 +19,16 @@ public class Main {
         // Crear consultorio
         Consultorio consultorio = Consultorio.obtenerInstancia("Clinica XYZ", "Calle 123");
 
+        // Crear Historial Medico
+        Collection<CitaConcreta> citas = new ArrayList<>();
+        Collection<Tratamiento> tratamientos = new ArrayList<>();
+        HistorialMedico historial = new HistorialMedico(citas, tratamientos);
+
         Collection<Persona> doctores = new ArrayList<>();
 
         // Crear pacientes
-        Paciente paciente1 = new Paciente("Juan Perez", "12345", LocalDate.of(1980, 5, 15), null);
-        Paciente paciente2 = new Paciente("Maria Lopez", "67890", LocalDate.of(1990, 10, 20), null);
+        Paciente paciente1 = new Paciente("Juan Perez", "12345", LocalDate.of(1980, 5, 15), historial);
+        Paciente paciente2 = new Paciente("Maria Lopez", "67890", LocalDate.of(1990, 10, 20), historial);
 
         // Crear doctores
         Persona doctor1 = new Doctor("Pediatría", "Dr. Martínez", "DOC123", LocalDate.of(1975, 8, 25));
@@ -33,31 +39,21 @@ public class Main {
         consultorio.agregarPersona(doctor2, doctores);
 
         // Crear el creador de citas con el builder adecuado
-        CreadorDeCita creadorDeCita = new CreadorDeCita(new ConsultaBuilder());
+        CreadorDeCita creadorConsulta = new CreadorDeCita(new ConsultaBuilder());
+
+        CreadorDeCita creadorSeguimiento = new CreadorDeCita(new SeguimientoBuilder());
 
         // Programar una cita de tipo Consulta para el paciente 1
         LocalDateTime fechaHoraCitaConsulta = LocalDateTime.of(2024, 6, 10, 9, 0);
 
-        Cita citaConsulta = creadorDeCita.constructor("Consulta", fechaHoraCitaConsulta, "Sala 1", (Doctor) doctor1,
+        Cita citaConsulta = creadorConsulta.constructor("Consulta", fechaHoraCitaConsulta, "Sala 1", (Doctor) doctor1,
                 paciente1);
 
         // Programar una cita de tipo Seguimiento para el paciente 2
         LocalDateTime fechaHoraCitaSeguimiento = LocalDateTime.of(2024, 6, 15, 10, 30);
 
-        Cita citaSeguimiento = creadorDeCita.constructor("Seguimiento", fechaHoraCitaSeguimiento, "Sala 2",
+        Cita citaSeguimiento = creadorSeguimiento.constructor("Seguimiento", fechaHoraCitaSeguimiento, "Sala 2",
                 (Doctor) doctor2, paciente2);
-
-        // Crear una instancia de GestorCitas
-        GestorCitas gestorCitas = new GestorCitas();
-
-        // Agregar pacientes como observadores
-        gestorCitas.addObserver(paciente1);
-        gestorCitas.addObserver(paciente2);
-
-        // Verificar citas próximas y notificar a los observadores
-        gestorCitas.verificarCitasProximas(consultorio.getPacientes().stream()
-                .flatMap(p -> p.getCitasProgramadas().stream())
-                .collect(Collectors.toList()));
 
         // Mostrar información de las citas programadas
         System.out.println("Información de citas programadas:");
