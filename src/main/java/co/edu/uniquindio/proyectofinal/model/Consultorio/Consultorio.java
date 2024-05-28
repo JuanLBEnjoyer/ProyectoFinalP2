@@ -175,14 +175,26 @@ public class Consultorio {
         lista.remove(persona);
     }
 
-    public Iterador<Doctor> crearIteradorDoctoresActivos() {
-        return new IteradorDoctoresActivos(doctores);
-    }
+    /**
+ * Crea un iterador para recorrer los doctores activos en el consultorio.
+ * @return Un iterador para los doctores activos.
+ */
+public Iterador<Doctor> crearIteradorDoctoresActivos() {
+    return new IteradorDoctoresActivos(doctores);
+}
 
-    public AdministradorCitas crearAdministrador(String nombre, String id, LocalDate fechaDeNacimiento){
 
-        this.administradorCitas = new AdministradorCitas(this, nombre, id, fechaDeNacimiento);
-        return this.administradorCitas;
-    }
+    /**
+ * Crea un nuevo administrador de citas para el consultorio.
+ * @param nombre El nombre del administrador.
+ * @param id El ID del administrador.
+ * @param fechaDeNacimiento La fecha de nacimiento del administrador.
+ * @return El administrador de citas creado.
+ */
+public AdministradorCitas crearAdministrador(String nombre, String id, LocalDate fechaDeNacimiento){
+    this.administradorCitas = new AdministradorCitas(this, nombre, id, fechaDeNacimiento);
+    return this.administradorCitas;
+}
+
 
 }
