@@ -20,6 +20,7 @@ public class AdministradorCitas extends Persona {
     private final GestorCitas gestorCitas;
     private final Consultorio consultorio;
     private final Random random;
+    
 
     /**
      * Constructor de la clase AdministradorCitas.
