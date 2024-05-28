@@ -1,7 +1,7 @@
 # Sistema de Gestión de Consultorio Médico
 Miembros: Juan Pablo Galeano Correa, Mateo Gomez Marulanda
 # Descripción General
-El Sistema de Gestión de Consultorio Médico es una aplicación diseñada para administrar la información de un consultorio médico, incluyendo pacientes, citas médicas, historiales y tratamientos, entre otros aspectos importantes. El sistema está diseñado para facilitar la gestión de datos y mejorar la atención médica brindada por el consultorio.
+El Sistema de Gestión de Consultorio Médico es una aplicación integral diseñada para la administración eficiente y efectiva de toda la información relevante en un consultorio médico. Este sistema incluye funcionalidades para la gestión de pacientes, citas médicas, historiales y tratamientos, entre otros aspectos importantes. El objetivo principal del sistema es facilitar la gestión de datos, mejorar la atención médica y optimizar los procesos administrativos del consultorio.
 
 # Funcionalidades Principales
 
